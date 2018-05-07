@@ -16,4 +16,4 @@ screenshot<br/>
 ![image](https://github.com/2219599254/BombGame/blob/master/image/page2.png)
 
 Tips:
-If you have any problems with the game, you can contact us by email
+If you have any problems with My game, you can contact us by email
