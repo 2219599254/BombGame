@@ -1,0 +1,92 @@
+/* pages/withdraw_page/withdraw_page.wxss */
+.container{
+  height: 100%;
+}
+.my_container{
+    width: 100%;
+    position: relative;
+}
+.now_can_money{
+    height: 62rpx;
+    line-height: 62rpx;
+    padding: 0 24rpx;
+    font-size: 24rpx;
+    color: #999;
+}
+.now_can_money .money{
+    font-size: 24rpx;
+    color: #ff3939;
+}
+/*---------  */
+.input1:after{
+    clear:both;
+    content:'.';
+    display:block;
+    width: 0;
+    height: 0;
+    visibility:hidden;
+}
+.submit_box{
+    background-color: #FFF;
+}
+.input_list{
+    padding-left: 24rpx;
+    height: 102rpx;
+    line-height: 100rpx;
+    background-color: #FFF;
+}
+.input_list:last-child .input1{
+  border: 0;
+}
+.input1{
+    border-bottom: 2rpx solid #e7e7e7;
+    position: relative;
+}
+.input1 .img_box{
+    width: 14rpx;
+    height: 100rpx;
+    position: absolute;
+    top: 0;
+    right: 24rpx;
+}
+.input1 label{
+    width: 170rpx;
+    float: left;
+    color: #333;
+    font-size: 32rpx;
+    overflow: hidden;
+}
+.input1 input{
+    height: 100rpx;
+    width: 448rpx;
+}
+
+.my_container .notice{
+    font-size: 24rpx;
+    color: #999;
+    padding-left: 24rpx;
+    line-height: 62rpx;
+}
+.btn{
+  /* background: #ff3939; */
+  color: #fff;
+  margin: 126rpx 48rpx 26rpx 48rpx;
+  height: 100rpx;
+  padding-top: 20rpx;
+  font-size: 28rpx;
+  text-align: center;
+}
+button::after{
+    border: 0;
+}
+.check_record{
+    font-size: 24rpx;
+    color: #ff3939;
+    width: 200rpx;
+    height: 100rpx;
+    line-height: 100rpx;
+    text-align: center;
+    position: absolute;
+    bottom: -76rpx;
+    right: 18rpx;
+}

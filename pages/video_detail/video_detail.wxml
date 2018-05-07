@@ -1,0 +1,51 @@
+<!--pages/video_detail/video_detail.wxml-->
+<view class='container'>
+  <view class='my_container'>
+
+    <view class='myVideo_box'>
+        <video id="myVideo" src="{{video_detail}}" autoplay="true" controls></video>
+
+         <!-- <view class='video_info' style='padding:20rpx 24rpx;'>
+          <span style="float:left;color:#999;font-size:24rpx;">{{item.create_time}}</span>
+          <image wx:if="{{video}}" class='image1' src='/images/zan1.png' style='width:36rpx;height:36rpx;'></image>
+          <image wx:else class='image1' src='/images/zan2.png' style='width:36rpx;height:36rpx;'></image>
+          <span style="margin:0 24rpx 0 10rpx;">525</span>
+          <image class='image1' src='/images/new.png' style='width:40rpx;height:35rpx;' bindtap='video_detail_fn'></image>
+          <span style="margin:0 24rpx 0 10rpx;">121</span>
+          <image class='image1' src='/images/share.png' style='width:36rpx;height:39rpx;'></image>
+        </view>  -->
+    </view>
+    <view class='title'>
+      <view class='a1'></view>
+      <view class='a2'>全部评论<span style="font-size:24rpx;color:#999;margin-left:12rpx;">({{list.length}}条)</span></view>
+    </view>
+
+    <view class='comment_people_list'>
+
+      <view class='comment_people' wx:for="{{list}}">
+
+        <view class='top_cont_box'>
+          <image class='image1' src='{{item.avatarurl}}' style='width:68rpx;height:68rpx;border-radius:50%;'></image>
+          <view class="text1">{{item.username}}</view>
+          <span style="color:#999;">{{item.goodnum}}</span>
+          <image wx:if="{{!item.prise}}" bindtap='commet_click_praise2' data-commentid='{{item.id}}' data-type='video_comment' src='/images/zan1.png' style='width:36rpx;height:36rpx;margin-left:10rpx;'></image>
+          <image wx:else class='image2' src='/images/zan2.png' style='width:36rpx;height:36rpx;margin-left:10rpx;'></image>
+        </view>
+
+        <view class='cont_detail'>{{item.content}}</view>
+      </view>
+      
+    </view>
+
+    <view class='bottom_input_send'>
+       <view class='left_input'>
+          <input name="phone"  placeholder="说点什么吧..." class="inp_1" value="{{receiver_phone}}" bindinput="bindinput" placeholder-style="font-size:28rpx;color:#999999;opacity: 0.5;"/>
+          <button class='video_share_btn' data-shareid='{{video_detail.id}}' open-type="share"><image src='/images/share.png' style='width:36rpx;height:39rpx;'></image></button>
+          <span style="color:#FB1B1B;margin-right:32rpx;" bindtap="send_comment" data-type="video">发送</span>
+      </view>
+      <view class=''></view> 
+    </view>
+
+
+  </view>
+</view>

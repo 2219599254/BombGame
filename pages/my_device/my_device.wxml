@@ -1,0 +1,13 @@
+<!--pages/my_device/my_device.wxml-->
+<view class='container'>
+  <view class='my_container'>
+      <view class='big_box'>
+          <view class='title'>请输入设备码</view>
+          <input name="divece_code"  placeholder="如：虎视TS450PLUS" maxlength="50" class="name" placeholder-style="font-size:28rpx;color:#999999;"/>   
+      </view>
+
+      <button class="btn commonBg"  formType="submit" style="pointer-events:{{submit}}">绑定</button>
+      
+  </view>
+
+</view>

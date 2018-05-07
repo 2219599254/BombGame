@@ -1,0 +1,68 @@
+<!--pages/coupon_center/coupon_center.wxml-->
+<view class="container">
+    <view class="my_container">
+        <view wx:if="{{coupons_list.length==0}}" style='line-height:100rpx;text-align:center;color:#666;font-size:32rpx;'>暂无优惠券发布O(∩_∩)O</view>
+        <!--优惠活动-->
+        <view class="discount">
+          <view  style="">
+              <view class="coupon_box" wx:for="{{coupons_list}}" bindtap="click_get_coupon"  data-scid="{{item.scid}}">
+                  <image src="/images/coupon2.png"></image>
+
+                  <view class="money" wx:if="{{item.conpons_type=='dc'}}">
+                      <view class="data_box">
+                          <text style="font-size:42rpx;">{{item.cut_price*10}}折</text>
+                      </view>
+                  </view>
+                  <view class="money" wx:elif="{{item.conpons_type=='mr'}}">
+                      <view class="data_box">
+                          <text style="font-size:30rpx;">￥<text style="font-size:42rpx;">{{item.cut_price}}</text></text>
+                      </view>
+                  </view>
+
+                  <view class="content"wx:if="{{item.conpons_type=='dc'}}">
+                      <view class="text1">
+                          <image src="/images/aaa2.png" style=""></image>
+                          <text>折扣券{{item.name}}</text>
+                      </view>
+                      <!-- <block wx:for="{{item.des}}"> -->
+                      <view class="text2">
+                          <text>· 剩余{{item.coupons_limit}}张</text>
+                      </view>
+                      <view class="text2">
+                          <text>· 全场一律{{item.cut_price*10}}折</text>
+                      </view>
+                      <view class="text2">
+                          <text>· 截止日期：{{item.end_time}}</text>
+                      </view>
+                      <!-- </block> -->
+                  </view>
+                  <view class="content" wx:elif="{{item.conpons_type=='mr'}}">
+                      <view class="text1">
+                          <image src="/images/aaa1.png" style="width:34rpx;height:19rpx;"></image>
+                          <text>满减券{{item.name}}</text>
+                      </view>
+                      <!-- <block wx:for="{{item.des}}"> -->
+                      <view class="text2">
+                          <text>· 剩余{{item.coupons_limit}}张</text>
+                      </view>
+                      <view class="text2">
+                          <text>· 满{{item.upper_limit}}可抵扣</text>
+                      </view>
+                      <view class="text2">
+                          <text>· 截止日期：{{item.end_time}}</text>
+                      </view>
+                      <!-- </block> -->
+                  </view>
+
+                  <view class="click">
+                      <view class="text_box">
+                          <text class="txt">点击领取</text>
+                      </view>
+                  </view>
+              </view>
+              
+          </view>  
+        </view>
+
+    </view>
+</view>

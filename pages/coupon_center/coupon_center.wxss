@@ -1,0 +1,82 @@
+/* pages/coupon_center/coupon_center.wxss */
+.container{
+  height: 100%;
+}
+.my_container{
+    width: 100%;
+}
+/*优惠券-模块*/
+.discount{
+    margin-top: 28rpx;
+}
+.discount .coupon_box{
+    margin: 0 24rpx;
+    font-size: 0;
+    padding-bottom: 24rpx;
+    position: relative;
+    color: #ff3939;
+}
+.discount .coupon_box image{
+    width: 100%;
+    height: 188rpx;
+}
+.discount .coupon_box .money{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 160rpx;
+    height: 187rpx;
+}
+.discount .coupon_box .money .data_box{
+    width: 100%;
+    height: 100%;
+    text-align: center;
+    line-height: 188rpx;
+}
+.discount .coupon_box .content{
+    position: absolute;
+    top: 0;
+    left: 160rpx;
+    width: 382rpx;
+    height: 188rpx;
+}
+.discount .coupon_box .content .text1{
+    padding:26rpx 0 10rpx 0;
+    font-size: 32rpx;
+}
+.discount .coupon_box .content .text1 image{
+    width:34rpx;
+    height:19rpx;
+    position: relative;
+    margin-right: 12rpx;
+    top: -4rpx;
+}
+.discount .coupon_box .content .text2{
+    font-size: 20rpx;
+}
+
+.discount .coupon_box .click{
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 157rpx;
+    height: 188rpx;
+}
+.discount .coupon_box .click .text_box{
+    width: 100%;
+    height: 100%;
+    text-align: center;
+    position: relative;
+}
+.discount .coupon_box .click .txt{
+    width: 80rpx;
+    display: inline-block;
+    font-size: 30rpx;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    overflow: hidden;
+    -webkit-transition-property: -webkit-transform,opacity;
+    transition-property: transform,opacity;
+    transform: translate(-50%, -50%);  
+}

@@ -1,0 +1,149 @@
+/* pages/my_activity/my_activity.wxss */
+.container{
+  height: 100%;
+}
+.my_container{
+  width: 100%;
+  background-color: #F7F7F7;
+  padding-bottom: 48rpx;
+}
+.img_box{
+    padding: 40rpx;
+}
+.img_box .title{
+    position: relative;
+}
+.img_box .title .red_line{
+    width: 6rpx;
+    height: 32rpx;
+    position: absolute;
+    left: -14rpx;
+    top: 4rpx;
+}
+
+.product_img{
+  padding: 0 24rpx;
+}
+.product_img .image{
+  width: 100%;
+  height: 340rpx;
+  border-top-left-radius: 10rpx;
+  border-top-right-radius: 10rpx;
+}
+.position_box{
+  text-align: center;
+  position: relative;
+  padding: 28rpx 48rpx;
+}
+.big_box{
+  font-size: 0;
+  background-color: #FFF;
+  margin-bottom: 24rpx;
+}
+.position_box .right_money{
+  position: absolute;
+  right: 48rpx;
+  display: inline-block;
+}
+.position_box .left_money{
+  position: absolute;
+  left: 48rpx;
+  display: inline-block;
+}
+.progress_box{
+  padding: 0 48rpx;
+}
+.progress_box progress{
+  border-radius: 16rpx;
+  overflow: hidden;
+}
+.kanjia_notice{
+  font-size: 22rpx;
+  color: #999;
+  text-align: center;
+  padding: 28rpx 0;
+}
+.button .btn_box:after,.help_activit_people:after{
+  content:"";
+  height:0;
+  line-height:0;
+  display:block;
+  visibility:hidden;
+  clear:both;
+}
+.product_img .button{
+    position: relative;
+    height: 120rpx;
+    border-bottom: 2rpx solid #eee;
+}
+.button .btn_box{
+    width: 530rpx;
+    height: 100%;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    overflow: hidden;
+    -webkit-transition-property: -webkit-transform,opacity;
+    transition-property: transform,opacity;
+    transform: translate(-50%, -50%);
+}
+.btn1{
+  float: left;
+  background-color: #FFF;
+  color: #FB1B1B; 
+  width: 240rpx;
+  height: 74rpx;
+  font-size: 28rpx;
+  text-align: center;
+  border:2rpx solid #ff3939; 
+}
+.btn2{
+  float: left;
+  background-color: #FB1B1B;
+  color: #FFF; 
+  width: 240rpx;
+  height: 76rpx;
+  line-height: 76rpx;
+  font-size: 28rpx;
+  text-align: center;
+  margin-left: 48rpx;
+}
+button::after{
+  border: 0;
+}
+.help_activit_people{
+  width: 100%;
+  height: 174rpx;
+  border-bottom-left-radius: 10rpx;
+  border-bottom-right-radius: 10rpx;
+  overflow: hidden;
+}
+.help_activit_people .people_list{
+    width: 20%;
+    height: 100%;
+    text-align: center;
+    float: left;
+}
+.help_activit_people .image2{
+  border-radius: 50%;
+}
+.help_activit_people .people_list.check_more{
+  float: right;
+}
+.people_list .name,.people_list .help_money{
+    font-size: 20rpx;
+    color: #999;
+    margin-top: 4rpx;
+}
+.now_goto_join{
+  background-color: #FFF;
+  color: #FB1B1B; 
+  width: 194rpx;
+  height: 66rpx;
+  line-height: 66rpx;
+  font-size: 28rpx;
+  text-align: center;
+  border:2rpx solid #ff3939;
+  margin: 0 auto;
+  margin-top: 48rpx;
+}

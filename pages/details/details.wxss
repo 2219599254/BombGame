@@ -1,0 +1,10 @@
+/* pages/problrm_details/problrm_details.wxss */
+
+@import "../../wxParse/wxParse.wxss";
+
+.top .title{margin:40rpx 0 30rpx 0;font-size: 36rpx;color: #000;}
+.top .line{font-size: 24rpx;color: #999;display: inline-flex;margin-bottom: 36rpx;}
+
+.top .line .scan_times{margin-right: 44rpx;}
+
+.content{padding: 0 24rpx; width: 702rpx;}

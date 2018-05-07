@@ -1,0 +1,40 @@
+<!--pages/distri_record/distri_record.wxml-->
+<view class="container">
+    <view class="my_container">
+        <view class="" wx:if="{{records.length == 0}}" style="text-align:center;margin-top:24rpx;">您还没有分销记录哦~</view>
+
+        <!-- <view class="record_list" wx:for="{{records}}">
+            <view class="cont_box">
+                <view class="list_top">
+                    <view class="title">收益</view>
+                    <view class="money"><span>+</span>￥{{item.dtb_income}}</view>
+                </view>
+                <view class="list_bottom">
+                    <view class="name">来源：{{item.username}}</view>
+                    <view class="time">{{item.create_time}}</view>
+                </view>
+            </view>
+        </view> -->
+
+        <view class='distri_list_box' wx:for="{{records}}">
+            <view class='distri_list'>
+                <view class="list_bottom" style='margin-top:0;'>
+                    <view class="name">{{item.dtb_orders_encode}}</view>
+                    <view class="time">{{item.create_time}}</view>
+                </view>
+                <view class="list_bottom">
+                    <view class="name">订单总额：
+                        <span class="now_price"><span style="font-size:22rpx">￥</span>{{item.order_price}}</span>
+                    </view>
+                    <view class="time">来源：<span style="color:#666">{{item.username}}</span></view>
+                </view>
+                <view class="list_bottom">
+                    <view class="name" wx:if="{{item.layer==1}}">一级分销收入：<span style="color:#FF7224">+{{item.dtb_income}}</span> (订单总额-运费)x提成比例</view>
+                    <view class="name" wx:elif="{{item.layer==2}}">二级分销收入：<span style="color:#FF7224">+{{item.dtb_income}}</span> (订单总额-运费)x提成比例</view>
+                    <view class="name" wx:elif="{{item.layer==3}}">三级分销收入：<span style="color:#FF7224">+{{item.dtb_income}}</span> (订单总额-运费)x提成比例</view>
+                    <view class="time">提成：<span style="color:#666">{{item.ucomm}}</span></view>
+                </view>
+            </view>
+        </view>
+    </view>
+</view>

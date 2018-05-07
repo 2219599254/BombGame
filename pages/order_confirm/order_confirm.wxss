@@ -1,0 +1,208 @@
+/* pages/order_confirm/order_confirm.wxss */
+@import "../../common/common.wxss";
+.product_list2 .product_right .title,.product_list2 .product_right .title2{
+    font-size:28rpx;
+    color:#333333;
+    width:450rpx;
+    overflow:hidden;
+    text-overflow:ellipsis;
+    white-space:nowrap;
+}
+.my_container{
+    width: 100%;
+    height: 100%;
+    margin-top: 2rpx;
+}
+.order_confirm{
+    position: relative;
+    padding-bottom: 128rpx;
+    background-color: #F7F7F7;
+}
+.click_right.addclass{
+    margin: 0;
+    height: 138rpx;
+}
+.click_right.addclass .aaa1{
+    line-height: 138rpx;
+    color: #ff3939;
+}
+.click_right.addclass .bbb{
+    line-height: 138rpx;
+}
+
+.click_right2{
+    padding: 0 24rpx;
+    background-color: #FFF;
+}
+.aaa2:after{
+    clear:both;
+    content:'.';
+    display:block;
+    width: 0;
+    height: 0;
+    visibility:hidden;
+}
+
+.address_box{
+    float: left;
+    margin-right: 32rpx;
+    position: relative;
+    height:138rpx;
+    width: 36rpx;
+}
+
+.address_box image{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    overflow: hidden;
+    -webkit-transition-property: -webkit-transform,opacity;
+    transition-property: transform,opacity;
+    transform: translate(-50%, -50%);
+}
+.aaa2 .bbb{
+    float: right;
+    width: 14rpx;
+    height:138rpx;
+    position: relative
+}
+.aaa2 .bbb image{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    overflow: hidden;
+    -webkit-transition-property: -webkit-transform,opacity;
+    transition-property: transform,opacity;
+    transform: translate(-50%, -50%);
+}
+
+.detail_address_box{
+    float: left;
+    width: 510rpx;
+    height: 138rpx;
+    position: relative;
+}
+.detail_address_box .let_center{
+    width: 510rpx;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    overflow: hidden;
+    -webkit-transition-property: -webkit-transform,opacity;
+    transition-property: transform,opacity;
+    transform: translate(-50%, -50%);
+}
+/*下面  */
+.mapAddress,.brand{
+    position: absolute;
+    right: 34rpx;
+    display: inline-block;
+    width:500rpx;
+    text-align: right;
+    overflow:hidden;
+    text-overflow:ellipsis;
+    -o-text-overflow:ellipsis;
+    -webkit-text-overflow:ellipsis;
+    -moz-text-overflow:ellipsis;
+    white-space:nowrap;
+    color: #666666;
+    font-size: 28rpx;
+}
+.leave_word{
+    width: 580rpx;
+    height: 100rpx;
+    position: absolute;
+    top: 0;
+    right: 24rpx;
+    text-align: right;
+}
+.btn_fixed:after{
+    clear:both;
+    content:'.';
+    display:block;
+    width: 0;
+    height: 0;
+    visibility:hidden;
+}
+.btn_fixed{
+    height: 100rpx;
+    width: 100%;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    background-color: #FFF;
+    z-index: 1000;
+}
+.show_left{
+    float: left;
+    width: 70%;
+    line-height: 100rpx;
+    text-align: right;
+    box-sizing: border-box;
+    padding: 0 24rpx;
+}
+.show_right{
+    float: right;
+    width: 30%;
+    /* background-color: #ff3939; */
+    color: #FFF;
+    text-align: center;
+    line-height: 100rpx;
+    height: 100rpx;
+    border-radius: 0;
+    font-size: 28rpx;
+}
+button::after {
+    border: 0;
+}
+
+/*可用优惠券  */
+.drawer_screen {
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  background: #000;
+  opacity: 0.2;
+  overflow: hidden;
+  z-index: 1000;
+  color: #fff;
+}
+.pay_join_tanchuang{
+    width: 100%;
+    height: 898rpx; 
+    overflow: hidden;
+    background-color: #FFF;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    z-index: 2000;
+}
+/*底部  */
+.scroll_box{
+    height: 100%;
+    position: relative;
+}
+.buttom_sure_btn1,.buttom_sure_btn2{
+    width: 100%;
+    height: 98rpx;
+    line-height: 98rpx;
+    text-align: center;
+    background-color: #ff3939;
+    color: #FFF;
+    position: absolute;
+    bottom: 0;
+}
+.stepper input {
+    color: #333;
+}
+.list_box{
+    padding-top: 24rpx;
+}
+.coupon_defauld_notice{
+  text-align: center;
+  font-size: 28rpx;
+  color: #999;
+  margin-top: 60rpx;
+}

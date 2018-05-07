@@ -1,0 +1,16 @@
+<!--pages/distri_people/distri_people.wxml-->
+<view class="container">
+    <view class='my_container'>
+        <view class='notice_text' wx:if="{{members.length==0}}">您暂无分销成员</view>
+        <view wx:for="{{members}}" class='people_list'>
+
+            <view class='people'>
+                <span style="padding:0 14px;position:relative;float:left;color:#666;">{{index}}</span>
+                <image class='image' src='{{item.avatarurl}}' style=''></image>
+                <span class="name" style="margin-left:28rpx;">{{item.username}}</span>
+                <span class="create_time">{{item.create_time}}</span>
+            </view>
+
+        </view>
+    </view>
+</view>

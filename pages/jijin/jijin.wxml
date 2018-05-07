@@ -1,0 +1,176 @@
+<!--index.wxml-->
+<view class="container">
+  <!--一键抓拍  -->
+  <view class='camera_story' style="display:{{block3}}">
+    <view class='ttab_box'>
+      <view class='ttab' bindtap='click_change_tab_color2' data-type='1'>
+        <span class="name {{change_type1 ? 'active':''}}">抓拍比赛</span>
+      </view>
+      <view class='ttab' bindtap='click_change_tab_color2' data-type='2'>
+        <span class="name {{change_type2 ? 'active':''}}">视屏集锦</span>
+      </view>
+      <view class='ttab' bindtap='click_change_tab_color2' data-type='3'>
+        <span class="name {{change_type3 ? 'active':''}}">攻略探讨</span>
+      </view>
+    </view>
+    <view class='my_camera_story'>
+
+      <view class='camera_story_madul_1' wx:if="{{camera_story_madul_1}}">
+        <!--头图  -->
+        <view class='match_banner' style='font-size:0;'>
+          <image src='/images/abc.png' style='width:100%;height:718rpx;' mode='aspectFill'></image>
+        </view>
+        <!--正义之星、勤奋之星、幸运之星  -->
+        <view class='' style='background-color:#FB1B1B;'>
+          <view class='zhixing_btn_box'>
+
+            <button wx:if="{{zhixing_list_box1}}" class='zhixing_btn' style='margin-right:40rpx;' data-btn='1' bindtap='click_change_zhengyi_list'>正义之星</button>
+            <button wx:else class='zhixing_btn' style='margin-right:40rpx;opacity:0.85;' data-btn='1' bindtap='click_change_zhengyi_list'>正义之星</button>
+
+            <button wx:if="{{zhixing_list_box2}}" class='zhixing_btn ' style='margin-right:40rpx;' data-btn='2' bindtap='click_change_zhengyi_list'>勤奋之星</button>
+            <button wx:else class='zhixing_btn ' style='margin-right:40rpx;opacity:0.85;' data-btn='2' bindtap='click_change_zhengyi_list'>勤奋之星</button>
+
+            <button wx:if="{{zhixing_list_box3}}" class='zhixing_btn' data-btn='3' bindtap='click_change_zhengyi_list'>幸运之星</button>
+            <button wx:else class='zhixing_btn' style='opacity:0.85;' data-btn='3' bindtap='click_change_zhengyi_list'>幸运之星</button>
+
+          </view>
+          <view class='ranking_list'>
+            <view class='imgAndTitle'>
+              <image src='/images/zhang.png' style='width:40rpx;height:45rpx;'></image>
+              <span style="margin-left:14rpx;font-size:32rpx;">排行榜</span>
+            </view>
+            <view class='time_box'>
+              <view class='time' wx:if="{{zhixing_list_box1}}">{{datatime}}月份 正义之星</view>
+              <view class='time' wx:if="{{zhixing_list_box2}}">{{datatime}}月份 勤奋之星</view>
+              <view class='time' wx:if="{{zhixing_list_box3}}">{{datatime}}月份 幸运之星</view>
+            </view>
+            <view style='padding: 0 24rpx;background:#FFF;'>
+              <view class='red_line'></view>
+            </view>
+            <view class='common_area'>
+              <view wx:if="{{zhixing_list_box1}}">
+                <view class='number_one zhixing_list' wx:for="{{zhixing_list_1}}">
+                  <image class='jb_img' wx:if="{{index == 0}}" src='/images/jb_1.png'></image>
+                  <image class='jb_img' wx:elif="{{index == 1}}" src='/images/jb_2.png'></image>
+                  <image class='jb_img' wx:elif="{{index == 2}}" src='/images/jb_3.png'></image>
+                  <view class='number' wx:else>{{index+1}}</view>
+                  <image src='{{item.avatarurl}}' style='float:left;width:68rpx;height:68rpx;'></image>
+                  <span style="float:left;font-size:24rpx;color:#666;margin-left:24rpx;">{{item.reporter_name}}</span>
+                  <span style="float:right;font-size:24rpx;color:#666;">上传数量：{{item.num}}</span>
+                </view>
+              </view>
+
+              <view wx:if="{{zhixing_list_box2}}">
+                <view class='number_one zhixing_list' wx:for="{{zhixing_list_2}}">
+                  <image wx:if="{{index == 0}}" src='/images/jb_1.png' class='jb_img'></image>
+                  <image wx:elif="{{index == 1}}" src='/images/jb_2.png' class='jb_img'></image>
+                  <image wx:elif="{{index == 2}}" src='/images/jb_3.png' class='jb_img'></image>
+                  <view class='number' wx:else>{{index+1}}</view>
+                  <image src='{{item.avatarurl}}' style='float:left;width:68rpx;height:68rpx;'></image>
+                  <span style="float:left;font-size:24rpx;color:#666;margin-left:24rpx;">{{item.reporter_name}}</span>
+                  <span style="float:right;font-size:24rpx;color:#666;">上传数量：{{item.num}}</span>
+                </view>
+              </view>
+              <view wx:if="{{zhixing_list_box3}}">
+                <!--
+                aaaaaaa
+                <view class='number_one zhixing_list' wx:for="{{zhixing_list_3}}">
+                  <image wx:if="{{index == 0}}" src='/images/jb_1.png' class='jb_img'></image>
+                  <image wx:elif="{{index == 1}}" src='/images/jb_2.png' class='jb_img'></image>
+                  <image wx:elif="{{index == 2}}" src='/images/jb_3.png' class='jb_img'></image>
+                  <view class='number' wx:else>{{index+1}}</view>
+                  <image src='{{avatarUrl}}' style='float:left;width:68rpx;height:68rpx;'></image>
+                  <span style="float:left;font-size:24rpx;color:#666;margin-left:24rpx;">{{nickName}}</span>
+                  <!--<span style="float:right;font-size:24rpx;color:#666;">上传数量：{{item.num}}</span>
+                </view>-->
+                <view class='number_one zhixing_list'>
+                    <image src='/images/jb_1.png' class='jb_img'></image>
+                    <view class='number'>1</view>
+                    <image src='{{avatarUrl}}' style='float:left;width:68rpx;height:68rpx;'></image>
+                    <span style="float:left;font-size:24rpx;color:#666;margin-left:24rpx;">{{nickName}}</span>
+                    <span style="float:right;font-size:24rpx;color:#666;">幸运值：100</span>
+                </view>
+              </view>
+
+            </view>
+          </view>
+
+        </view>
+        <!--<view class='number_one' >
+            <image src='{{avatarUrl}}' style='float:left;width:68rpx;height:68rpx;'></image>
+            <span style="float:left;font-size:24rpx;color:#666;margin-left:24rpx;">{{nickName}}</span>
+            <view style="float:left;font-size:28rpx;color:#000;margin-left:92rpx;"><span style="padding:0 34rpx;border-left:4rpx solid #FB1B1B;border-right:4rpx solid #FB1B1B;">排名：{{my_range}}</span></view>
+            <span style="float:right;font-size:24rpx;color:#666;">{{my_count}}</span>
+          </view>-->
+
+      </view>
+      <view class='camera_story_madul_2' wx:if="{{camera_story_madul_2}}">
+        <view class='myVideo_box_father' scroll-y="true" bindscroll="pull_up">
+
+          <view class='myVideo_box' wx:for="{{video_list}}">
+            <!--<video id="myVideo" src="http://web.womenxing.com/original/{{item.device_sn}}/{{item.file_name}}" danmu-list="{{danmuList}}" enable-danmu danmu-btn controls></video>-->
+            <video id="myVideo" src="{{item.url}}"  controls="true"></video>
+            <view class='video_info'>
+              <span style="float:left">{{item.time}}</span>
+              <!--  
+              -->
+              <!--  -->
+              <span style="margin:0 0rpx 0 10rpx;">{{item.city}}</span>
+              <image class='image1 image2' src='/images/new.png' style='width:40rpx;height:35rpx;' data-videoid="{{item.id}}" data-videourl="{{item.url}}"  bindtap='video_detail_fn' ></image>              
+              <!-- <button class='video_share_btn' data-shareid='{{item.id}}' data-shareuid='{{item.uid}}'><image class='image1' src='/images/share.png' style='width:36rpx;height:39rpx;'></image></button> -->
+            </view>
+          </view>
+        </view>
+      </view>
+      <view class='camera_story_madul_3' wx:if="{{camera_story_madul_3}}">
+        <image src='/images/11.png' class="raiderImg" bindtap='changToRider'></image>
+        <!--这是第一种  -->
+        <view class='raiders_list' wx:for="{{$article_list}}" wx:for-index="idx">
+
+          <view class='comment_head'>
+            <image class='image' src='{{item.avatarurl}}' style='width:68rpx;height:68rpx;border-radius:50%;'></image>
+            <view class='name_and_time'>
+              <view class='name'>{{item.username}}</view>
+              <view class='time'>
+                <span>{{item.create_time}}</span>
+              </view>
+            </view>
+          </view>
+
+          <view class='comment_cont'>{{item.content}}</view>
+
+          <view class='parent' wx:if="{{item.banner.length < 2}}">
+            <image mode="aspectFill" bindtap='previewImage' data-img='{{item}}' data-indexa="0" data-index="{{idx}}"  wx:for="{{item.banner}}" src='{{item}}' style='width:500rpx;height:322rpx;border-radius:10rpx;'></image>
+          </view>
+          <view wx:else class='parent'>
+            <block wx:for="{{item.banner}}" wx:for-index="idx2">
+            <image mode="aspectFill" data-index="{{idx}}"  data-indexa="{{idx2}}"  bindtap='previewImage' data-img='{{item}}'   class='child' src='{{item}}' style='width:228rpx;height:228rpx;border-radius:10rpx;'></image>
+            </block>
+          </view>
+
+          <view class='video_info' style='padding:20rpx 0;'>
+            <span style="float:left;color:#999;font-size:24rpx;">{{item.scannum}} 阅读</span>
+            <image wx:if="{{!item.prise}}" class='image1' bindtap='commet_click_praise' data-commentid='{{item.id}}' data-type='article' src='/images/zan1.png' style='width:36rpx;height:36rpx;'></image>
+            <image wx:else class='image1' src='/images/zan2.png' style='width:36rpx;height:36rpx;'></image>
+            <span style="margin:0 24rpx 0 10rpx;">{{item.goodnum}}</span>
+            <image class='image1' src='/images/new.png' style='width:40rpx;height:35rpx;' data-commentid='{{item.id}}' bindtap='picture_detail_fn'></image>
+            <span style="margin:0 24rpx 0 10rpx;">{{item.comnum}}</span>
+            <button class='comment_share_btn' data-shareid='{{item.id}}' open-type="share">
+              <image class='image1' src='/images/share.png' style='width:36rpx;height:39rpx;'></image>
+            </button>
+          </view>
+
+        </view>
+        <!--上拉加载提示和动画效果 -->
+        <view class="loading_box2" wx:if="{{loading3}}">
+          <view class="loading3 loading3_1"></view>
+          <view class="loading3 loading3_2"></view>
+          <view class="loading3 loading3_3"></view>
+        </view>
+        <view class="aaaa_text" wx:if="{{bottom_wenzi}}">没有更多了</view>
+
+      </view>
+
+    </view>
+  </view>
+</view>

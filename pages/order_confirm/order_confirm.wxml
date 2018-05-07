@@ -1,0 +1,200 @@
+<!--pages/order_confirm/order_confirm.wxml-->
+<view class="container">
+    <view class="my_container">
+        <view class="order_confirm">
+            <!--收货地址状态判断  -->
+            <view class="click_right addclass" wx:if="{{address_stadus == ''}}">
+                <navigator url="/pages/my_address/my_address">
+                    <view class="aaa1" style="border:0;">请填写收货地址
+                      <view class="bbb" >
+                          <image src="/images/right.png" style="width:14rpx;height:24rpx;margin-left:22rpx;"></image>
+                      </view>
+                    </view>
+                </navigator>
+            </view>
+            <view class="click_right2 addclass2" wx:else>
+              <block>
+                <navigator url="/pages/my_address/my_address?aid={{address_stadus.aid}}">
+                    <view class="aaa2" style="border:0;">
+
+                      <view class="address_box"><image src="/images/address.png" style="width:36rpx;height:48rpx;"></image></view>
+                      
+                      <view class="detail_address_box">
+                          <view class="let_center">
+                              <view class="name_and_phone" style="font-size:28rpx;color:#333;">{{address_stadus.del_name}}<span style="margin-left:30rpx;">{{address_stadus.del_phone}}</span></view>
+                              <view class="_address" style="font-size:24rpx;color:#999;">{{address_stadus.del_address}}</view>
+                          </view>
+                      </view>
+
+                      <view class="bbb" >
+                          <image src="/images/right.png" style="width:14rpx;height:24rpx;"></image>
+                      </view>
+
+                    </view>
+                </navigator>
+              </block>
+            </view>
+            <!-- 要支付的产品列表 -->
+            <view class="product_list2_box">
+              <block wx:for="{{pro_list}}">
+                  <view class="product_list2">
+                      <view class="product_left">
+                          <image src="{{item.banner_list}}" mode="aspectFill"></image>
+                      </view>
+                      <view class="product_right">
+                          <view class="title">{{item.goods_name}}</view>
+                          <view class="title2" style='font-size:24rpx;color:#666;'>{{item.goods_title}}</view>
+                          <view class="colour" wx:if="{{item.main_style_name!==''}}">{{item.main_style_name}}：{{item.main_style_tags}}<span wx:if="{{item.sub_style_name!==''}}">；{{item.sub_style_name}}:{{item.sub_style_tags}}</span></view>
+                          <view class="money" style='margin-top:28rpx;'><text class="text">￥{{item.discount_price}}</text><text class="num">x{{item.buy_num}}</text></view>
+                      </view>
+                  </view>
+              </block>
+            </view>
+
+            <view class="click_right" bindtap="chooseCoupons"  data-status="1">
+                 <!-- <navigator url="/pages/my_address/my_address">  -->
+                    <view class="aaa" style="border:0;">可用优惠券({{pre_orders_enable_conpons_num}})
+                      <view class="bbb" >
+                        <image src="/images/right.png" style="width:14rpx;height:24rpx;margin-top:40rpx;"></image>
+                      </view>
+                      <view class="ccc" style='right:58rpx;' wx:if="{{!pre_orders_enable_conpons_num}}">暂无可用优惠券</view>
+                      <view class="ccc" style='right:58rpx;' wx:else>已选可用优惠券</view>
+                    </view>
+                 <!-- </navigator> -->
+            </view>
+
+            <view class="click_right">
+                <!-- <navigator url="/pages/my_address/my_address"> -->
+                    <view class="aaa" style="border:0;">运费：
+                      <!-- <view class="bbb" >
+                          <image src="/images/right.png" style="width:14rpx;height:24rpx;margin-left:22rpx;"></image>
+                      </view> -->
+                      <view class="ccc" style="color:#333;">+￥{{pre_orders_sum_fare_price}}</view>
+                    </view>
+                <!-- </navigator> -->
+            </view>
+
+            <view class="click_right">
+                <view class="aaa" style="border:0;">
+                <text wx:if="{{integral_limit > user_integral}}">您的积分{{user_integral}}低于{{integral_limit}}点，积分不可用</text>
+                <text wx:else>可用{{integral.use_enable_integral}}积分抵用{{integral.integral_cut_price}}</text>
+                  <!-- <view class="bbb" >
+                      <image src="/images/right.png" style="width:14rpx;height:24rpx;margin-left:22rpx;"></image>
+                  </view> -->
+                  <span class="ccc"><switch checked="{{switch_change}}" color='#FE0000' bindchange="switch2Change"/></span>
+                </view>
+            </view>
+
+            <view class="click_right">
+                <view class="aaa" style="border:0;">留言：
+                  <!-- <view class="bbb" >
+                      <image src="/images/right.png" style="width:14rpx;height:24rpx;margin-left:22rpx;"></image>
+                  </view> -->
+                  <input class="leave_word"  name="address" value="{{company_address}}" maxlength="25"  placeholder-style="font-size:28rpx;color:#999;" placeholder="买家留言"/>
+                  <!-- <view class="mapAddress" >的风格大方多少公分的{{_address}}</view>
+                  <input hidden="true" class="mapAddress"  name="address" value="{{company_address}}"  /> -->
+                  <!-- <view class="ccc" style="color:#333;">+￥0</view> -->
+                </view>
+            </view>
+
+            <view class="click_right">
+                <view class="aaa">商品合计：
+                  <!-- <view class="bbb" >
+                      <image src="/images/right.png" style="width:14rpx;height:24rpx;margin-left:22rpx;"></image>
+                  </view> -->
+                  <view class="ccc" style="color:#333;right:24rpx;">￥{{my_account_money}}</view>
+                </view>
+                 <view class="aaa">优惠券：
+                  <!-- <view class="bbb" >
+                      <image src="/images/right.png" style="width:14rpx;height:24rpx;margin-left:22rpx;"></image>
+                  </view> -->
+                  <view class="ccc" style="color:#333;right:24rpx;">-￥{{click_change_tatol_price}}</view>
+                </view>
+
+                <!-- <view class="aaa">优惠后合计：
+                  <view class="ccc" style="color:#333;right:24rpx;">￥{{my_account_money-click_change_tatol_price}}</view>
+                </view> -->
+
+                <view class="aaa">运费：
+                  <!-- <view class="bbb" >
+                      <image src="/images/right.png" style="width:14rpx;height:24rpx;margin-left:22rpx;"></image>
+                  </view> -->
+                  <view class="ccc" style="color:#333;right:24rpx;">+￥{{pre_orders_sum_fare_price}}</view>
+                </view>
+                <view class="aaa">积分：
+                  <!-- <view class="bbb" >
+                      <image src="/images/right.png" style="width:14rpx;height:24rpx;margin-left:22rpx;"></image>
+                  </view> -->
+                  <view class="ccc" style="color:#333;right:24rpx;">-￥{{is_integral}}</view>
+                </view>
+            
+            
+                <view class="aaa" style="border:0;">总计：
+                  <!-- <view class="bbb" >
+                      <image src="/images/right.png" style="width:14rpx;height:24rpx;margin-left:22rpx;"></image>
+                  </view> -->
+                  <view class="ccc" style="color:#ff3939;right:24rpx;" >￥{{account_money}}</view>
+                </view>
+                
+            </view>
+
+            <form bindsubmit="formSubmit" report-submit="true">
+              <!--底部-去支付  -->
+              <view class="btn_fixed">
+                    <view class="show_left">实付金额：<span style="color:#ff3939;">￥{{account_money}}</span></view>
+                    <!-- <view class="show_right" bindtap="payMoney">立即支付</view> -->
+                    <button class="show_right commonBg" form-type="submit" bindtap="payMoney">立即支付</button>
+              </view>
+            </form>
+        </view>
+
+        <!--可用优惠券列表  -->
+      <view class="drawer_screen" bindtap="chooseCoupons" data-status="0" wx:if="{{showModalStatus}}"></view>
+      <view class="pay_join_tanchuang" animation="{{animationData}}" wx:if="{{showModalStatus}}">
+          <view class="scroll_box">
+            <scroll-view style="height:100%;position:relative;" scroll-into-view="{{toView}}" scroll-top="{{scrollTop}}" scroll-with-animation="" scroll-y="true" bindscroll="scroll" scroll-top="{{scrollTo}}" class="my_table_list scroll-view_H">
+                <view class='coupon_defauld_notice' wx:if="{{pre_orders_enable_conpons_list.length == 0}}">您暂无可用优惠券</view>
+                <view class="list_box" wx:for="{{pre_orders_enable_conpons_list}}">
+                    <!-- <block wx:for="{{list}}"> -->
+                      <view  class="code_list" wx:if="{{item.conpons_status=='4'}}" style="background-image: url({{change_img}});">
+
+                          <view class="view_top">
+                              
+                              <view class="aaaaa">
+                                  <view class="money" style="font-size:52rpx;" wx:if="{{item.conpons_type =='mr'}}">
+                                      <text style="font-size:30rpx;">￥</text>{{item.cut_price}}
+                                  </view>
+
+                                  <view class="money" style="font-size:52rpx;" wx:if="{{item.conpons_type =='dc'}}">{{item.cut_price*10}}<text style="font-size:30rpx;">折</text></view>
+                                  
+                                  <view class="cont" wx:if="{{item.conpons_type =='mr'}}">
+                                      <view class="coupon">满{{item.upper_limit}}可使用</view>
+                                  </view>
+                                  <view class="cont" wx:if="{{item.conpons_type =='dc'}}">
+                                      <view class="coupon">商品折扣</view>
+                                  </view>
+                              </view>
+                              <view class="btn_take"><label class="box" bindtap="right_off_use" data-cut="{{item.cut_price}}" data-type="{{item.conpons_type}}" data-ccid="{{item.ccid}}" data-status="0">立即使用</label></view>
+                          </view>
+
+                          <view class="view_bottom">
+                              <view class="float_left" wx:if="{{item.conpons_type =='mr'}}">
+                                  <image class="image" style="width:34rpx;height:19rpx;margin-right:8rpx;" src="/images/aaa1.png"></image>
+                                  满减券
+                              </view>
+                              <view class="float_left" wx:if="{{item.conpons_type =='dc'}}">
+                                  <image class="image" style="width:34rpx;height:19rpx;margin-right:8rpx;" src="/images/aaa2.png"></image>
+                                  折扣券
+                              </view>
+                              <view class="float_right">有效期至：{{item.end_time}}</view>
+                          </view>
+                      </view>
+
+              <!-- </block> -->
+                </view>
+            </scroll-view>
+          </view>
+      </view>
+
+    </view>
+</view>

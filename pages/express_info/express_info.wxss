@@ -1,0 +1,79 @@
+/* pages/express_info/express_info.wxss */
+.my_container{
+    width: 100%;
+    padding-bottom: 28rpx;
+    background-color: #F7F7F7;
+}
+.head_cont{
+    background-color: #FFF;
+    padding: 24rpx 28rpx;
+}
+.head_cont .stadus{
+    font-size: 28rpx;
+    color: #333;
+}
+.head_cont .aaa{
+    font-size: 28rpx;
+    color: #999;
+}
+.my_express_info{
+    padding: 24rpx;
+    background-color: #FFF;
+    margin-top: 24rpx;
+}
+.my_express_info .list:first-child .list_child_box .list_child{
+    color: #fe0000;
+}
+.my_express_info .list:first-child .list_child_box .is_time{
+    color: #fe0000;
+}
+.my_express_info .list:last-child .list_child_box{
+    border-bottom: 0;
+}
+.list {
+    position: relative;
+     padding-left: 60rpx;  
+    /* margin-top: 64rpx;
+    margin-bottom: 64rpx; */
+}
+.list_child_box{
+    border-bottom: 2rpx solid #E7E7E7;
+    padding: 24rpx 0;
+}
+.list .list_child{
+    font-size: 28rpx;
+    color: #999;
+}
+.is_time{
+    color: #999;
+}
+
+.list::before {
+    content: '';
+    position: absolute;
+    top: 34rpx;
+    left: 18rpx;
+    height: 100%;
+    width: 2rpx;
+    background: #d7e4ed;
+}
+
+.list:last-child::before {
+    height: 0;
+}
+
+.list::after {
+    content: '';
+    position: absolute;
+    top: 30rpx;
+    left: 4px;
+    height: 20rpx;
+    width: 20rpx;
+    border-radius: 50%;
+    background-color: #BBB;
+}
+
+.list:first-child::after {
+    background-color: #fe0000;
+    box-shadow: 0 0 20rpx #fe0000;
+}

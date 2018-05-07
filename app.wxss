@@ -1,0 +1,130 @@
+/**app.wxss**/
+page{
+    height: 100%;
+}
+.commonColor{
+    color: #FE0000;
+}
+.commonBg{
+    background-color: #FE0000;
+}
+/*按钮边字  */
+.commonColor.commonBorder{
+    border: 2rpx solid #fa4950;
+    color: #fa4950; 
+}
+/*分类点击  */
+.commonColor.commonBg{
+    background-color: #FE0000;
+    color: #FE0000; 
+}
+.commonBorder{
+    border:2rpx solid #FE0000;
+}
+/*文字左边的竖  */
+/* .commonBorder2{
+    border-left:6rpx solid #ff3939;
+} */
+/*我的订单nav  */
+.commonColor.commonBorder3{
+    color:#FE0000;
+    border-bottom:5rpx solid #FE0000;
+}
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  box-sizing: border-box;
+  background-color: #F7F7F7;
+  font-size: 28rpx;
+  color:#000000;
+  font-family: 'PingFang SC','sans-serif','Microsoft YaHei','Arial';
+} 
+.bottom {
+  height: 100rpx;
+  position: fixed;
+  bottom: 0;
+  z-index: 1000;
+  display: inline-flex;
+  width: 750rpx;
+  background-color: #fff;
+}
+
+.bottom .b .active{
+  color: #ff0000;
+}
+
+.bottom .b{
+  width: 150rpx;
+  height: 100rpx;
+  text-align: center;
+  
+}
+
+.bottom image{
+  margin-top: 8rpx;
+  height: 52rpx;
+  width:52rpx;
+}
+
+.bottom .btitle{
+  font-size: 20rpx;
+  color: #ADADAD;
+  line-height: 20rpx;
+  height: 24rpx;
+  line-height: 24rpx;
+}
+
+.bottom .b3{
+  border-radius: 100%;
+  width: 130rpx;
+  height: 130rpx;
+  background-color: #fff;
+  position: relative;
+  top:-40rpx;
+}
+
+.bottom .b3 image{
+  margin-top: 10rpx;
+}
+
+.bottom .b3 .btitle{
+  color: #fff;
+
+}
+
+.bottom .b6{
+  width: 100rpx;
+  height: 100rpx;
+  border-radius: 50%;
+  background-color: #FB1B1B;  
+  margin:15rpx auto 0;
+}
+
+.bottom .b6 .btitle{
+  margin-top: -8rpx;
+  text-align: center;
+}
+
+/*自定义无loading弹窗样式  */
+.custom_showModal{
+  max-width: 280rpx;
+  min-height: 40rpx;
+  background: #000;
+  opacity: 0.65;
+  overflow: hidden;
+  z-index: 1000;
+  color: #fff;
+  border-radius: 12rpx;
+  text-align: center;
+  padding: 24rpx;
+
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  -webkit-transition-property: -webkit-transform,opacity;
+  transition-property: transform,opacity;
+  transform: translate(-50%, -50%);
+}
+/*  */

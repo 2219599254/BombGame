@@ -1,0 +1,17 @@
+<!--pages/onekey_modular_detail/onekey_modular_detail.wxml-->
+<import src="../../wxParse/wxParse.wxml" />
+<view class='content'>
+  <view class='top'>
+    <view class='title'>{{problem_detail.title}}</view>
+    <view class="line">
+      <view class='scan_times'>阅读 {{problem_detail.scan_times}}</view>
+      <view class='date'>{{problem_detail.create_time}}</view>
+    </view>
+  </view>
+  <block wx:if="{{problem_detail.video}}" >
+    <video autoplay="true" style='width:100%;' src="{{problem_detail.video}}"></video>
+  </block>
+  <view class="wxParse">
+    <template is="wxParse" data="{{wxParseData:article.nodes}}" />
+  </view>
+</view>

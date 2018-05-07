@@ -1,0 +1,675 @@
+<!--index.wxml-->
+<import src="../../wxParse/wxParse.wxml" />
+<view class="container">
+  <!--企业官网  -->
+  <view class="part1" style="display:{{block1}}">
+    <swiper indicator-dots="{{indicatorDots}}" autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}" circular="true" class="banner_img">
+      <block wx:for="{{banner}}">
+        <swiper-item>
+          <image mode="aspectFill" src="{{item.img}}" class="slide-image" data-gid="{{item.gid}}" />
+        </swiper-item>
+      </block>
+    </swiper>
+
+    <view class="check_more">
+      <view class="more_list" bindtap="switchTab" data-n='0'>
+        <view class="aaa">
+          <image mode="aspectFill" class="image" src="/images/7.png" style="width:105rpx;height:105rpx;border-radius: 50%;"></image>
+          <view class="name">公司实力</view>
+        </view>
+      </view>
+      <view class="more_list" bindtap="switchTab" data-n='1'>
+        <view class="aaa">
+          <image mode="aspectFill" class="image" src="/images/1.png" style="width:105rpx;height:105rpx;border-radius: 50%;"></image>
+          <view class="name">常见问题</view>
+        </view>
+      </view>
+      <view class="more_list" bindtap="switchTab" data-n='2'>
+        <view class="aaa">
+          <image mode="aspectFill" class="image" src="/images/14.png" style="width:105rpx;height:105rpx;border-radius: 50%;"></image>
+          <view class="name">下载中心</view>
+        </view>
+      </view>
+      <view class="more_list" bindtap="switchTab" data-n='3'>
+        <view class="aaa">
+          <image mode="aspectFill" class="image" src="/images/10.png" style="width:105rpx;height:105rpx;border-radius: 50%;"></image>
+          <view class="name">加盟合作</view>
+        </view>
+      </view>
+
+    </view>
+    <view class='message'>
+      <image src='/images/8.png'></image>
+      <navigator url='/pages/activity/activity'>
+        <view style="color:#ff0000">一年一度的砍价活动开始啦，点击进入</view>
+      </navigator>
+    </view>
+
+    <view class='title'>
+      <view class='a1'></view>
+      <view class='a2'>企业简介</view>
+      <navigator url="../official_details/official_details?munber=1">
+        <view class='a3'>更多 </view>
+      </navigator>
+      <view class='a4'>
+        <image src="/images/2.png"></image>
+      </view>
+    </view>
+    <view class='jianjie'>
+      <view>
+        <view class='text_jianjie'>{{jianjie.qyjs}}</view>
+        <image mode="aspectFill" src='{{jianjie.pic}}'></image>
+      </view>
+      <view style='clear:both;'></view>
+    </view>
+
+    <view class='title'>
+      <view class='a1'></view>
+      <view class='a2'>公司动态</view>
+      <navigator url="../official_details/official_details?munber=4">
+        <view class='a3'>更多 </view>
+      </navigator>
+      <view class='a4'>
+        <image src="/images/2.png"></image>
+      </view>
+    </view>
+    <!--特价优惠  -->
+    <view class="goods_discount">
+      <view class="nowday_hot_box">
+        <view class="nowday_hot">
+          <scroll-view scroll-with-animation="" scroll-x="true" bindscroll="scroll" class="my_table_list scroll-view_H">
+            <block wx:for="{{company_news}}">
+              <view class="d2">
+                <navigator url="/pages/details/details?id={{item.id}}&type=2">
+                  <image mode="aspectFill" src="{{item.pic}}"></image>
+                  <view class="name">{{item.title}}</view>
+                </navigator>
+              </view>
+            </block>
+          </scroll-view>
+        </view>
+      </view>
+    </view>
+
+    <view class='title'>
+      <view class='a1'></view>
+      <view class='a2'>公司荣誉</view>
+      <navigator url="../official_details/official_details?munber=3">
+        <view class='a3'>更多</view>
+      </navigator>
+      <view class='a4'>
+        <image src="/images/2.png"></image>
+      </view>
+    </view>
+    <!--特价优惠  -->
+    <view class="goods_discount">
+      <view class="nowday_hot_box">
+        <view class="nowday_hot">
+          <scroll-view scroll-with-animation="" scroll-x="true" bindscroll="scroll" class="my_table_list scroll-view_H">
+            <block wx:for="{{company_honor}}">
+              <view class="e2" bindtap="preview_img" data-pic="{{item.pic}}">
+
+                <image mode="aspectFill" src="{{item.pic}}"></image>
+                <view class="name">{{item.title}}</view>
+
+              </view>
+            </block>
+          </scroll-view>
+
+        </view>
+      </view>
+    </view>
+
+    <!-- 
+<view class='title'>
+        <view class='a1'></view>
+        <view class='a2'>公司荣誉</view>
+        <navigator url="../official_details/official_details?munber=3">
+          <view class='a3'>更多</view>
+        </navigator>
+        <view class='a4'>
+          <image src="/images/2.png"></image>
+        </view>
+      </view>
+
+
+      <view class="goods_discount">
+        <view class="nowday_hot_box">
+          <view class="nowday_hot">
+            <scroll-view scroll-with-animation="" scroll-x="true" bindscroll="scroll" class="my_table_list scroll-view_H">
+              <block wx:for="{{company_honor}}">
+                <view class="d2" bindtap="preview_img" data-pic="{{item.pic}}">
+
+                  <image mode="aspectFit" src="{{item.pic}}"></image>
+                  <view class="name">{{item.title}}</view>
+
+                </view>
+              </block>
+            </scroll-view>
+
+          </view>
+        </view>
+      </view> -->
+
+    <view class='title'>
+      <view class='a1'></view>
+      <view class='a2'>行业新闻</view>
+      <navigator url="../journalism/journalism">
+        <view class='a3'>更多 </view>
+      </navigator>
+      <view class='a4'>
+        <image src="/images/2.png"></image>
+      </view>
+    </view>
+    <view class='news_list'>
+      <view class='newss' wx:for="{{industry_news}}">
+        <navigator class='news' url="/pages/details/details?id={{item.id}}&type=3">
+          <view class='left'>
+            <image mode="aspectFill" src="{{item.pic}}"></image>
+          </view>
+          <view class='right'>
+            <view class='b_title'>{{item.title}}</view>
+            <view class='b_line'>
+              <view class='yd'>阅读 {{item.scan_times}}</view>
+              <view class='rq'>{{item.create_time}}</view>
+            </view>
+          </view>
+        </navigator>
+      </view>
+    </view>
+
+    <view style='height:160rpx;width:750rpx;'></view>
+  </view>
+  <view class="part2" style="display:{{block2}}">
+  </view>
+  <view class="part3" style="display:{{block3}}">
+  </view>
+  <view class="part4" style="display:{{block4}}">
+  </view>
+  <view class="part5" style="display:{{block5}}">
+  </view>
+
+  <view class='bottom'>
+    <view class='b b1' bindtap="jump_url" data-button="1">
+      <image src="{{icon1}}"></image>
+      <view class='btitle {{active1}}'>企业官网</view>
+    </view>
+    <view class='b b2' bindtap="jump_url" data-button="2">
+      <image src="{{icon2}}"></image>
+      <view class='btitle {{active2}}'>积分商城</view>
+    </view>
+    <view class='b b3' bindtap="jump_url" data-button="3">
+      <view class='b6'>
+        <image src="/images/icon3_1.png"></image>
+        <view class='btitle'>镜头故事</view>
+      </view>
+
+    </view>
+    <view class='b b4' bindtap="jump_url" data-button="4">
+      <image src="{{icon4}}"></image>
+      <view class='btitle {{active4}}'>一键抓拍</view>
+    </view>
+    <view class='b b5' bindtap="jump_url" data-button="5">
+      <image src="{{icon5}}"></image>
+      <view class='btitle {{active5}}'>个人中心</view>
+    </view>
+  </view>
+  <view class='kf' style='display:{{custom_service}}'>
+    <contact-button type="default-light" style='margin:15rpx 0 0 25rpx;' size="20" session-from="weapp"></contact-button>
+    <view class='lxkf'>联系客服</view>
+
+  </view>
+  <!--积分商城  -->
+  <view class='integral_shop' style="display:{{block2}}">
+    <swiper indicator-dots="true" autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}" circular="true" class="banner_img">
+      <block wx:for="{{home_module.banner}}">
+        <swiper-item>
+          <navigator url="/pages/product_detail/product_detail?gid={{item.gid}}">
+            <image mode="aspectFill" src="{{item.banner_list}}" class="slide-image" data-gid="{{item.gid}}" />
+          </navigator>
+        </swiper-item>
+      </block>
+    </swiper>
+
+    <!--分类list  -->
+    <view class="check_more">
+      <block wx:for="{{classify_list2}}">
+        <view class="more_list" bindtap="jump_url2" data-name='{{item.classify_name}}' data-page="{{item.tid}}">
+          <view class="aaa">
+            <image class="image" src="{{item.classify_icon}}" style="width:105rpx;height:105rpx;border-radius:50%;"></image>
+            <view class="name">{{item.classify_name}}</view>
+          </view>
+        </view>
+      </block>
+      <view class="more_list" bindtap="jump_url2">
+        <view class="aaa">
+          <button class='online_service_btn' open-type="contact">
+            <image class="image" src="/images/icon4.png" style="width:105rpx;height:105rpx;border-radius:50%;"></image>
+            <view class="name" style='font-size:28rpx;color:#666;'>在线客服</view>
+          </button>
+        </view>
+      </view>
+    </view>
+    <!--来砍价-图片  -->
+    <view class='bargain'>
+      <navigator url='/pages/activity/activity'>
+        <image src='{{home_module.activity_banner}}' style='width:100%;height:180rpx;border-radius:10rpx;'></image>
+      </navigator>
+    </view>
+
+    <!--热销商品  -->
+    <view class='tuijian'>
+      <view class="h_tilte img3">
+        <image class='image1' src='/images/shop1.png'></image>
+        <text>推荐商品</text>
+         <span class="right_text" bindtap="goToClassify">查看更多<image src="/images/right.png" style='width:14rpx;height:24rpx;position:relative;margin-left:14rpx;top:2rpx;'></image></span> 
+      </view>
+      <view class="healthy_img">
+        <block wx:for="{{home_module.hotsave}}">
+          <view class="healthy_img_next" bindtap="switchTab2" data-name='{{item.classify_name}}' data-gid="{{item.tid}}">
+            <navigator url="/pages/product_detail/product_detail?gid={{item.gid}}">
+              <view class="img_box">
+                <image mode="aspectFill" src="{{item.banner_list}}"></image>
+                <view class="hot_text">
+                  <view class="text1">{{item.goods_name}}</view>
+                  <view class='text2'>{{item.goods_title}}</view>
+                  <view class='money' style="color:#FB1B1B;">
+                    <span class="now_price" style="font-size:32rpx;">
+                      <span style="font-size:22rpx">￥</span>{{item.discount_price}}</span>
+                    <span style="margin-left:28rpx;">
+                      <image src='/images/ji_fen.png' style='width:23rpx;height:23rpx;margin-right:8rpx;'></image>{{item.discount_price*10}}</span>
+                  </view>
+                </view>
+              </view>
+            </navigator>
+          </view>
+        </block>
+      </view>
+    </view>
+
+    <!--厂家推荐  -->
+    <view class='good_product' wx:if="{{home_module.recommend.length}}">
+      <view class="h_tilte img3">
+        <image class='image1' src='/images/shop2.png'></image>
+        <text>厂家推荐</text>
+        <!-- <span class="right_text">行车记录仪</span> -->
+      </view>
+      <navigator url="/pages/product_detail/product_detail?gid={{item.gid}}" wx:for="{{home_module.recommend}}">
+        <view class='good_product_list'>
+          <image style='width:100%;height:370rpx;' src='{{item.banner_list}}'></image>
+          <view class='neirong'>
+            <view class='title1'>{{item.goods_name}}</view>
+            <view class='title2'>{{item.goods_title}}</view>
+            <view class='money' style="color:#FB1B1B;">
+              <span class="now_price">
+                <span style="font-size:22rpx">￥</span>{{item.discount_price}}</span>
+              <span style="margin-left:28rpx;">
+                <image src='/images/ji_fen.png' style='width:23rpx;height:23rpx;margin-right:8rpx;'></image>{{item.sold_num}}</span>
+            </view>
+          </view>
+
+        </view>
+      </navigator>
+    </view>
+
+  </view>
+
+  <!--镜头故事  -->
+  <view class='camera_story' style="display:{{block3}}">
+    <view class='ttab_box'>
+      <view class='ttab' bindtap='click_change_tab_color2' data-type='1'>
+        <span class="name {{change_type1 ? 'active':''}}">抓拍比赛</span>
+      </view>
+      <view class='ttab' bindtap='click_change_tab_color2' data-type='2'>
+        <span class="name {{change_type2 ? 'active':''}}">视屏集锦</span>
+      </view>
+      <view class='ttab' bindtap='click_change_tab_color2' data-type='3'>
+        <span class="name {{change_type3 ? 'active':''}}">攻略探讨</span>
+      </view>
+    </view>
+    <view class='my_camera_story'>
+
+      <view class='camera_story_madul_1' wx:if="{{camera_story_madul_1}}">
+        <!--头图  -->
+        <view class='match_banner' style='font-size:0;'>
+          <image src='/images/abc.png' style='width:100%;height:718rpx;' mode='aspectFill'></image>
+        </view>
+        <!--正义之星、勤奋之星、幸运之星  -->
+        <view class='' style='background-color:#FB1B1B;'>
+          <view class='zhixing_btn_box'>
+            <button class='zhixing_btn' style='margin-right:40rpx;' data-btn='1' bindtap='click_change_zhengyi_list'>正义之星</button>
+            <button class='zhixing_btn' style='margin-right:40rpx;' data-btn='2' bindtap='click_change_zhengyi_list'>勤奋之星</button>
+            <button class='zhixing_btn' data-btn='3' bindtap='click_change_zhengyi_list'>幸运之星</button>
+          </view>
+          <view class='ranking_list'>
+            <view class='imgAndTitle'>
+              <image src='/images/zhang.png' style='width:40rpx;height:45rpx;'></image>
+              <span style="margin-left:14rpx;font-size:32rpx;">排行榜</span>
+            </view>
+            <view class='time_box'>
+              <view class='time' wx:if="{{zhixing_list_box1}}">{{datatime}}月份 正义之星</view>
+            </view>
+            <view style='padding: 0 24rpx;background:#FFF;'>
+              <view class='red_line'></view>
+            </view>
+            <view class='common_area'>
+              <view wx:if="{{zhixing_list_box1}}">
+                <view class='number_one zhixing_list' wx:for="{{zhixing_list_1}}">
+                  <image class='jb_img' wx:if="{{index == 0}}" src='/images/jb_1.png'></image>
+                  <image class='jb_img' wx:elif="{{index == 1}}" src='/images/jb_2.png'></image>
+                  <image class='jb_img' wx:elif="{{index == 2}}" src='/images/jb_3.png'></image>
+                  <view class='number' wx:else>{{index+1}}</view>
+                  <image src='{{item.avatarurl}}' style='float:left;width:68rpx;height:68rpx;'></image>
+                  <span style="float:left;font-size:24rpx;color:#666;margin-left:24rpx;">{{item.reporter_name}}</span>
+                  <span style="float:right;font-size:24rpx;color:#666;">上传数：{{item.num}}</span>
+                </view>
+              </view>
+
+              <view wx:if="{{zhixing_list_box2}}">
+                <view class='number_one zhixing_list' wx:for="{{zhixing_list_2}}">
+                  <image wx:if="{{index == 0}}" src='/images/jb_1.png' class='jb_img'></image>
+                  <image wx:elif="{{index == 1}}" src='/images/jb_2.png' class='jb_img'></image>
+                  <image wx:elif="{{index == 2}}" src='/images/jb_3.png' class='jb_img'></image>
+                  <view class='number' wx:else>{{index+1}}</view>
+                  <image src='{{item.avatarurl}}' style='float:left;width:68rpx;height:68rpx;'></image>
+                  <span style="float:left;font-size:24rpx;color:#666;margin-left:24rpx;">{{item.reporter_name}}</span>
+                  <span style="float:right;font-size:24rpx;color:#666;">上传数量：{{item.num}}</span>
+                </view>
+              </view>
+              <view wx:if="{{zhixing_list_box3}}">
+
+                <view class='number_one zhixing_list' wx:for="{{zhixing_list_3}}">
+                  <image wx:if="{{index == 0}}" src='/images/jb_1.png' class='jb_img'></image>
+                  <image wx:elif="{{index == 1}}" src='/images/jb_2.png' class='jb_img'></image>
+                  <image wx:elif="{{index == 2}}" src='/images/jb_3.png' class='jb_img'></image>
+                  <view class='number' wx:else>{{index+1}}</view>
+                  <image src='{{avatarUrl}}' style='float:left;width:68rpx;height:68rpx;'></image>
+                  <span style="float:left;font-size:24rpx;color:#666;margin-left:24rpx;">{{nickName}}</span>
+                  <!--<span style="float:right;font-size:24rpx;color:#666;">上传数量：{{item.num}}</span>-->
+                </view>
+              </view>
+
+            </view>
+          </view>
+
+        </view>
+        <!--<view class='number_one' >
+            <image src='{{avatarUrl}}' style='float:left;width:68rpx;height:68rpx;'></image>
+            <span style="float:left;font-size:24rpx;color:#666;margin-left:24rpx;">{{nickName}}</span>
+            <view style="float:left;font-size:28rpx;color:#000;margin-left:92rpx;"><span style="padding:0 34rpx;border-left:4rpx solid #FB1B1B;border-right:4rpx solid #FB1B1B;">排名：{{my_range}}</span></view>
+            <span style="float:right;font-size:24rpx;color:#666;">{{my_count}}</span>
+          </view>-->
+
+      </view>
+      <view class='camera_story_madul_2' wx:if="{{camera_story_madul_2}}">
+        <view class='myVideo_box_father'>
+          <view class='myVideo_box' wx:for="{{video_list}}">
+            <!--<video id="myVideo" src="http://web.womenxing.com/original/{{item.device_sn}}/{{item.file_name}}" danmu-list="{{danmuList}}" enable-danmu danmu-btn controls></video>-->
+            <video id="myVideo" src="{{item}}"></video>
+            <view class='video_info'>
+              <span style="float:left">{{item.real_create_time}}</span>
+              <!-- <image wx:if="{{!item.prise}}" class='image1' src='/images/zan1.png' style='width:36rpx;height:36rpx;'></image>
+              <image wx:else class='image1' src='/images/zan2.png' style='width:36rpx;height:36rpx;'></image>
+              <span style="margin:0 24rpx 0 10rpx;">{{item.goodnum}}</span>
+              <image class='image1' src='/images/new.png' style='width:40rpx;height:35rpx;' data-videoid='{{item.id}}' bindtap='video_detail_fn'></image> 
+              <span style="margin:0 0rpx 0 10rpx;">{{item.comnum}}</span>-->
+              <!-- <button class='video_share_btn' data-shareid='{{item.id}}' data-shareuid='{{item.uid}}'><image class='image1' src='/images/share.png' style='width:36rpx;height:39rpx;'></image></button> -->
+            </view>
+          </view>
+        </view>
+      </view>
+      <view class='camera_story_madul_3' wx:if="{{camera_story_madul_3}}">
+        <image src='/images/11.png' class="raiderImg" bindtap='changToRider'></image>
+        <!--这是第一种  -->
+        <view class='raiders_list' wx:for="{{$article_list}}">
+
+          <view class='comment_head'>
+            <image class='image' src='{{item.avatarurl}}' style='width:68rpx;height:68rpx;border-radius:50%;'></image>
+            <view class='name_and_time'>
+              <view class='name'>{{item.username}}</view>
+              <view class='time'>
+                <span>{{item.create_time}}</span>
+              </view>
+            </view>
+          </view>
+
+          <view class='comment_cont'>{{item.content}}</view>
+
+          <view class='parent' wx:if="{{item.banner.length < 2}}">
+            <image mode="aspectFill" bindtap='previewImage' data-img='{{item}}' wx:for="{{item.banner}}" src='{{item}}' style='width:500rpx;height:322rpx;border-radius:10rpx;'></image>
+          </view>
+          <view wx:else class='parent'>
+            <image mode="aspectFill" bindtap='previewImage' data-img='{{item}}' wx:for="{{item.banner}}" class='child' src='{{item}}' style='width:228rpx;height:228rpx;border-radius:10rpx;'></image>
+          </view>
+
+          <view class='video_info' style='padding:20rpx 0;'>
+            <span style="float:left;color:#999;font-size:24rpx;">{{item.scannum}} 阅读</span>
+            <image wx:if="{{!item.prise}}" class='image1' bindtap='commet_click_praise' data-commentid='{{item.id}}' data-type='article' src='/images/zan1.png' style='width:36rpx;height:36rpx;'></image>
+            <image wx:else class='image1' src='/images/zan2.png' style='width:36rpx;height:36rpx;'></image>
+            <span style="margin:0 24rpx 0 10rpx;">{{item.goodnum}}</span>
+            <image class='image1' src='/images/new.png' style='width:40rpx;height:35rpx;' data-commentid='{{item.id}}' bindtap='picture_detail_fn'></image>
+            <span style="margin:0 24rpx 0 10rpx;">{{item.comnum}}</span>
+            <button class='comment_share_btn' data-shareid='{{item.id}}' open-type="share">
+              <image class='image1' src='/images/share.png' style='width:36rpx;height:39rpx;'></image>
+            </button>
+          </view>
+
+        </view>
+        <!--上拉加载提示和动画效果 -->
+        <view class="loading_box2" wx:if="{{loading3}}">
+          <view class="loading3 loading3_1"></view>
+          <view class="loading3 loading3_2"></view>
+          <view class="loading3 loading3_3"></view>
+        </view>
+        <view class="aaaa_text" wx:if="{{bottom_wenzi}}">没有更多了</view>
+
+      </view>
+
+    </view>
+  </view>
+  <!--一键抓拍  -->
+  <view class='onekey_capture' style="display:{{block4}}">
+    <view class='ttab_box'>
+      <view class='ttab' bindtap='click_change_tab_color' data-type='1'>
+        <span class="name {{change_type ? 'active':''}}">抓拍教程</span>
+      </view>
+      <view class='ttab' bindtap='click_change_tab_color' data-type='2'>
+        <span class="name {{!change_type ? 'active':''}}">活动有奖介绍</span>
+      </view>
+    </view>
+    <view class='onekey_modular' wx:if="{{onekey_modular}}">
+      <!--轮播图  -->
+      <swiper indicator-dots="{{indicatorDots}}" autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}" circular="true" class="banner_img">
+        <block wx:for="{{shop_banner_list}}">
+          <swiper-item>
+            <image mode="aspectFill" src="/images/13.jpg" class="slide-image" data-gid="{{item.gid}}" />
+          </swiper-item>
+        </block>
+      </swiper>
+      <!--阅读 snap_data_list -->
+      <view class='yuedu'>
+        <view class="list_box" wx:for="{{snap_data_list}}">
+          <navigator url="/pages/onekey_modular_detail/onekey_modular_detail?id={{item.id}}">
+            <view class="display_effect">
+              <view class="img_box">
+                <image mode="aspectFill" src="{{item.pic}}"></image>
+              </view>
+              <view class="view_right">
+                <view class="my_title">{{item.title}}</view>
+                <view class='number_and_time'>阅读
+                  <span>{{item.scan_times}}</span>
+                  <span style="float:left;">{{item.create_time}}</span>
+                </view>
+              </view>
+            </view>
+          </navigator>
+        </view>
+      </view>
+    </view>
+    <view class='onekey_modular2' wx:if="{{!onekey_modular}}">
+      <view class='red_box'>
+        <view class='cont_box'>
+          <view style='text-align:center;margin-bottom:10rpx;'>
+            <image src='/images/active_intro.png' style='width:450rpx;height:74rpx;'></image>
+          </view>
+          <!-- <text>{{problem_detail.create_time}}</text> -->
+          <view class="wxParse">
+            <template is="wxParse" data="{{wxParseData:article11.nodes}}" />
+          </view>
+        </view>
+      </view>
+    </view>
+
+  </view>
+  <!--个人中心  -->
+  <view class='personal_center' style="display:{{block5}}">
+
+    <view class="person_head commonBg">
+      <view class="head_and_name">
+        <view class="aaa">
+          <view class='tx'>
+            <image wx:if="{{avatarUrl==''}}" src="{{my_avatarUrl}}"></image>
+            <image wx:else src="{{avatarUrl}}"></image>
+          </view>
+          <view wx:if="{{nickName==''}}" class="name">{{my_nickName}}</view>
+          <view wx:else class="name">{{nickName}}</view>
+        </view>
+      </view>
+
+      <view class="money_inte">
+        <view class="left_view">
+          <image src="/images/money.png" style="width:24rpx;height:28rpx;"></image>
+          <span style="color:#FFF;font-size:24rpx;">我的钱包：￥{{wallet}}</span>
+        </view>
+        <view class="right_view">
+          <image src="/images/money.png" style="width:24rpx;height:28rpx;"></image>
+          <span style="color:#FFF;font-size:24rpx;">积分：{{integral}}</span>
+        </view>
+      </view>
+    </view>
+
+    <view class="my_order">
+      <view class="click_right">
+        <navigator url="/pages/my_order/my_order?currentTab=0&otype=pay" hover-class="none">
+          <view class="aaa">我的订单
+            <view class="bbb">全部订单
+              <image src="/images/right.png" style="width:14rpx;height:24rpx;margin-left:22rpx;"></image>
+            </view>
+          </view>
+        </navigator>
+      </view>
+      <view class="goods_stadu">
+        <view class="goods_stadu_list">
+          <navigator class="df_1" url="/pages/my_order/my_order?currentTab=1&otype=deliver" hover-class="none">
+            <view class="aaa">
+              <view class="num_box">
+                <view class="num" wx:if="{{one_num > 0}}">{{one_num}}</view>
+                <image src="/images/img1.png" style="width:47rpx;height:48rpx;"></image>
+                <view class="">待付款</view>
+              </view>
+            </view>
+          </navigator>
+        </view>
+        <view class="goods_stadu_list">
+          <navigator class="df_1" url="/pages/my_order/my_order?currentTab=2&otype=receive" hover-class="none">
+            <view class="aaa">
+              <view class="num_box">
+                <view class="num" wx:if="{{two_num > 0}}">{{two_num}}</view>
+                <image src="/images/img2.png" style="width:61rpx;height:48rpx;"></image>
+                <view class="">待发货</view>
+              </view>
+            </view>
+          </navigator>
+        </view>
+        <view class="goods_stadu_list">
+          <navigator class="df_1" url="/pages/my_order/my_order?currentTab=3&otype=finish" hover-class="none">
+            <view class="aaa">
+              <view class="num_box">
+                <view class="num" wx:if="{{three_num > 0}}">{{three_num}}</view>
+                <image src="/images/img3.png" style="width:48rpx;height:48rpx;"></image>
+                <view class="">待收货</view>
+              </view>
+            </view>
+          </navigator>
+        </view>
+      </view>
+    </view>
+
+    <view class="click_right" style='display:none'>
+      <navigator url="/pages/my_device/my_device">
+        <view class="aaa" style="border:0;">我的设备
+          <view class="bbb">
+            <image src="/images/right.png" style="width:14rpx;height:24rpx;margin-left:22rpx;"></image>
+          </view>
+        </view>
+      </navigator>
+    </view>
+
+    <view class="click_right">
+      <navigator url="/pages/activity/activity">
+        <view class="aaa">我的活动
+          <view class="bbb">
+            <image src="/images/right.png" style="width:14rpx;height:24rpx;margin-left:22rpx;"></image>
+          </view>
+        </view>
+      </navigator>
+    </view>
+
+    <view class="click_right" style="margin-top: 0;">
+      <navigator url="/pages/my_coupon/my_coupon">
+        <view class="aaa" style="border:0;">我的优惠券
+          <view class="bbb">
+            <image src="/images/right.png" style="width:14rpx;height:24rpx;margin-left:22rpx;"></image>
+          </view>
+        </view>
+      </navigator>
+    </view>
+
+    <view class="click_right">
+      <navigator url="/pages/distri_page/distri_page">
+        <view class="aaa">我的分销
+          <view class="bbb">
+            <image src="/images/right.png" style="width:14rpx;height:24rpx;margin-left:22rpx;"></image>
+          </view>
+        </view>
+      </navigator>
+    </view>
+    <view class="click_right" style="margin-top: 0;">
+      <navigator url="/pages/distri_record/distri_record">
+        <view class="aaa">分销记录
+          <view class="bbb">
+            <image src="/images/right.png" style="width:14rpx;height:24rpx;margin-left:22rpx;"></image>
+          </view>
+        </view>
+      </navigator>
+    </view>
+    <view class="click_right" style="margin-top: 0;">
+      <navigator url="/pages/withdraw_page/withdraw_page">
+        <view class="aaa" style="border:0;">钱包提现
+          <view class="bbb">
+            <image src="/images/right.png" style="width:14rpx;height:24rpx;margin-left:22rpx;"></image>
+          </view>
+        </view>
+      </navigator>
+    </view>
+
+    <view class="click_right">
+      <navigator url="/pages/my_address/my_address">
+        <view class="aaa" >地址管理
+          <view class="bbb">
+            <image src="/images/right.png" style="width:14rpx;height:24rpx;margin-left:22rpx;"></image>
+          </view>
+        </view>
+      </navigator>
+    </view>
+    <view class="click_right" style="margin-top: 0;" bindtap='previewimg'>      
+        <view class="aaa" style="border:0;">客服微信
+          <view class="bbb">
+            <image src="/images/right.png" style="width:14rpx;height:24rpx;margin-left:22rpx;"></image>
+          </view>
+        </view>
+    </view>
+
+  </view>
+
+</view>

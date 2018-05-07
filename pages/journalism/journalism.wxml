@@ -1,0 +1,28 @@
+<!--官网详情  -->
+<view>
+  <!--banner  -->
+  <view class='banner'>
+    <image mode="aspectFill" src="/images/13.jpg" class="slide-image"  />
+  </view>
+  <!-- 导航-->
+    <view class='nav_title'>
+      <view class='newss' wx:for="{{industry_news}}">
+        <navigator class='news' url="/pages/details/details?id={{item.id}}&type=3">
+        <view class='left'>
+          <image src="{{item.pic}}"></image>
+        </view>
+        <view class='right'>
+          <view class='b_title'>{{item.title}}</view>
+          <view class='b_line'>
+            <view class='yd'>阅读 {{item.scan_times}}</view>
+            <view class='rq'>{{item.create_time}}</view>
+          </view>
+        </view>
+        </navigator>
+      </view>
+      
+
+    </view>
+  
+    
+</view>

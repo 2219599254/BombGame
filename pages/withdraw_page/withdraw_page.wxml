@@ -1,0 +1,69 @@
+<!--pages/withdraw_page/withdraw_page.wxml-->
+<view class="container">
+    <view class="my_container">
+    <form bindsubmit="formSubmit" bindreset="formReset">
+        <view class="now_can_money">当前提现的金额：<span class="money">￥{{currentMoney}}</span></view>
+
+        <view class="submit_box">
+
+            <view class="input_list">
+                <view class="input1">
+                    <label>金额</label>
+                    <input name="money" type="number" bindblur="bindBlur"  placeholder="输入本次提现金额" maxlength="6" class="name" placeholder-style="font-size:28rpx;color:#999999;" value="{{apply_sum}}"/>
+                </view>
+            </view>
+            <view class="input_list">
+            <view class="section">
+              <picker bindchange="bindPickerChange" value="{{index}}" range="{{array}}"> 
+                <view class="input1">
+                    <label>付款方式</label>
+                    <!-- <span>银行账户</span> -->
+                     <input name="pay_way" style="pointer-events:none" value="{{array[index]}}" readonly="readonly"  placeholder="推荐使用微信" maxlength="6" class="name" placeholder-style="font-size:28rpx;color:#999999;"/>
+                    <view class="img_box"><image src="/images/right.png" style="width:14rpx;height:24rpx;"></image></view> 
+                </view>
+              </picker> 
+            </view>
+            </view>
+            <view class="input_list">
+                <view class="input1">
+                    <!--银行账号  -->
+                    <label>{{account_number}}</label>
+                    <input name="account" placeholder="请输入账号" type='text' maxlength="19" class="name" placeholder-style="font-size:28rpx;color:#999999;" value="{{pay_account}}"/>
+                </view>
+            </view>
+            <view class="input_list">
+                <view class="input1">
+                    <!-- 银行名称  如：中国工商银行-->
+                    <label>{{account_name}}</label>
+                    <input name="card_name"  placeholder="{{notice_cont}}" maxlength="30" class="name" placeholder-style="font-size:28rpx;color:#999999;" value="{{card_name}}"/>
+                </view>
+            </view>
+            <view class="input_list" wx:if="{{nameShow}}">
+                <view class="input1">
+                    <label>卡号地址</label>
+                    <picker mode="region" bindchange="bindRegionChange" value="{{region}}">
+                      <view class="mapAddress" >
+                          {{del_province}}<image src="/images/right.png" style="width:14rpx;height:24rpx;margin-left:16rpx;"></image>
+                          {{del_city}}<image src="/images/right.png" style="width:14rpx;height:24rpx;margin-left:16rpx;"></image>
+                          {{del_area}}<image src="/images/right.png" style="width:14rpx;height:24rpx;margin-left:16rpx;"></image>
+                      </view>
+                    </picker>
+                </view>
+            </view>
+            <view class="input_list" wx:if="{{nameShow}}">
+                <view class="input1" style="border:0;">
+                    <label>支行名称</label>
+                    <input name="remarks"  placeholder="如：中国工商银行(景田支行)" maxlength="30" class="name" placeholder-style="font-size:28rpx;color:#999999;" value="{{remarks}}"/>
+                </view>
+            </view>
+            
+        </view>
+
+        <view class="notice">每月1至10号统一打款</view>
+        <button class="btn commonBg"  formType="submit" style="pointer-events:{{submit}}">立即提现</button>
+        <navigator url="/pages/withdraw_record/withdraw_record">
+            <view class="check_record">提现记录</view>
+        </navigator>
+    </form>
+    </view>
+</view>

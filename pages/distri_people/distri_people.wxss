@@ -1,0 +1,58 @@
+/* pages/distri_people/distri_people.wxss */
+page{
+  /* height: auto !important; */
+}
+.container{
+  height: 100%;
+}
+.people_list:nth-last-child(1){
+  margin-bottom: 15rpx;
+}
+.my_container{
+    width: 100%;
+    box-sizing: border-box;
+}
+.notice_text{
+    font-size: 30rpx;
+    color: #666;
+    line-height: 200rpx;
+    text-align: center;
+    
+}
+.people_list{
+    /* padding-left: 24rpx; */
+    background-color: #FFF;
+    margin: 15rpx 15rpx 0rpx 15rpx;
+    border-radius: 10rpx;
+}
+.people_list .people:after{
+    clear:both;
+    content:'.';
+    display:block;
+    width: 0;
+    height: 0;
+    visibility:hidden;
+}
+.people_list .people{
+    height: 100rpx;
+    line-height: 100rpx;
+    padding-right: 24rpx;
+    border-bottom: 2rpx solid #EBEBEB;
+    
+}
+ .people_list .people:last-child{
+    border:0;
+ }
+.people_list .people .image{
+    float: left;
+    width:80rpx;
+    height:80rpx;
+    position: relative;
+    top: 6rpx;
+    border-radius: 50%;
+}
+.people_list .people .create_time{
+    float: right;
+    font-size: 28rpx;
+    color: #999;
+}

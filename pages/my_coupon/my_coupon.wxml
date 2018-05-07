@@ -1,0 +1,102 @@
+<!--pages/my_coupon/my_coupon.wxml-->
+<view class="container">
+    <view class="my_container">
+
+    <view class="list_box" wx:for="{{coupons_list}}">
+        <!-- <block wx:for="{{list}}"> -->
+            <view  class="code_list" wx:if="{{item.conpons_status=='4'}}" style="background-image: url({{change_img}});">
+
+                <view class="view_top">
+                    
+                        <view class="aaaaa">
+                            <view class="money" style="font-size:52rpx;" wx:if="{{item.conpons_type =='mr'}}">
+                                <text style="font-size:30rpx;">￥</text>{{item.cut_price}}
+                            </view>
+
+                            <view class="money" style="font-size:52rpx;" wx:if="{{item.conpons_type =='dc'}}">{{item.cut_price*10}}<text style="font-size:30rpx;">折</text></view>
+                            
+                            <view class="cont" wx:if="{{item.conpons_type =='mr'}}">
+                                <view class="coupon">满{{item.upper_limit}}可使用</view>
+                            </view>
+                            <view class="cont" wx:if="{{item.conpons_type =='dc'}}">
+                                <view class="coupon">商品折扣</view>
+                            </view>
+                        </view>
+                    <navigator class="qr_img" url="/pages/classify/classify" open-type="navigate">
+                        <view class="btn_take"><label  class="box">立即使用</label></view>
+                    </navigator>
+                </view>
+
+                <view class="view_bottom">
+                    <view class="float_left" wx:if="{{item.conpons_type =='mr'}}">
+                        <image class="image" style="width:34rpx;height:19rpx;margin-right:8rpx;" src="/images/aaa1.png"></image>
+                        减满券
+                    </view>
+                    <view class="float_left" wx:if="{{item.conpons_type =='dc'}}">
+                        <image class="image" style="width:34rpx;height:19rpx;margin-right:8rpx;" src="/images/aaa2.png"></image>
+                        折扣券
+                    </view>
+                    <view class="float_right">有效期至：{{item.end_time}}</view>
+                </view>
+            </view>
+
+<!--2  -->
+            <view  class="code_list" wx:elif="{{item.conpons_status=='1'}}" style="background-image: url({{change_img}});">
+                <view class="view_top">
+                        <view class="aaaaa">
+                            <view class="money" style="font-size:52rpx;"><text style="font-size:30rpx;">￥</text>200</view>
+                            <view class="cont">
+                                <view class="coupon">满100减10{{item.name}}</view>
+                            </view>
+                        </view>
+                        <view class="overdue">
+                            <image src="/images/used.png"></image>
+                        </view>
+            </view>
+            <view class="view_bottom">
+                <view class="float_left">
+                    <image class="image" style="width:34rpx;height:19rpx;margin-right:8rpx;" src="/images/aaa1.png"></image>
+                    减满券{{item.company_name}}
+                </view>
+                <view class="float_right">有效期至：{{item.end_time}}</view>
+            </view>
+        </view>
+<!--3  -->
+        <view class="code_list" wx:elif="{{item.conpons_status=='2'}}" style="background-image: url({{change_img2}});">
+            <view class="view_top">
+
+                    <view class="aaaaa">
+                        <view class="money" style="font-size:52rpx;"><text style="font-size:30rpx;">￥</text>200</view>
+                        <view class="cont">
+                            <view class="coupon">满100减10{{item.name}}</view>
+                        </view>
+                    </view>
+                    <view class="overdue">
+                        <image src="/images/overdue.png"></image>
+                    </view>
+                <!-- <navigator class="qr_img" url="/pages/coupon_code/coupon_code?name={{item.company_name}}&cid={{item.cid}}&img={{item.img}}&title={{item.title}}">
+                    <image src="/images/qr2.png"></image>
+                </navigator> -->
+            </view>
+            <view class="view_bottom">
+                <view class="float_left">
+                    <image class="image" style="width:34rpx;height:19rpx;margin-right:8rpx;" src="/images/aaa1.png"></image>
+                    减满券{{item.company_name}}
+                </view>
+                <view class="float_right">有效期至：{{item.end_time}}</view>
+            </view>
+        </view> 
+    <!-- </block> -->
+
+  </view>
+    <!--无数据默认提示文字-->
+    <view wx:if="{{coupons_list== ''}}" class="" style="text-align:center;margin-top:240rpx;">
+        <image src="/images/kong.png" style="width:178rpx;height:178rpx;"></image>
+        <view style="color:#999;margin-top:40rpx;">还没有相关优惠券哦~</view>
+    </view>
+    <navigator url="/pages/coupon_center/coupon_center">
+        <view class="receive_more_coupon commonBg">前往领取更多优惠券</view>
+    </navigator>
+    </view>
+
+</view>

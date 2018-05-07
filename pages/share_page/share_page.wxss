@@ -1,0 +1,34 @@
+/* pages/share_page/share_page.wxss */
+.my_container{
+    width: 100%;
+    box-sizing: border-box;
+}
+/* 弹窗蒙版 */
+.bg_mask {
+  position: fixed;
+  background-color: rgba(0, 0, 0, 0.6);
+  width: 100%;
+  height: 100%;
+  z-index: 1000;
+}
+.top_notice {
+  width: 100%;
+  position: fixed;
+  z-index: 1001;
+  text-align: center;
+}
+.top_notice .img1_box{
+  width: 100%;
+  text-align: right;
+  padding: 60rpx 88rpx;
+  box-sizing: border-box;
+}
+.top_notice .text_notice{
+  font-size: 32rpx;
+  color: #FFF;
+  padding: 20rpx 48rpx;
+  text-align: center;
+}
+.top_notice .img2 {
+  margin-top: 120rpx;
+}

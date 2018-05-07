@@ -1,0 +1,78 @@
+<view class="container">
+
+  <view class="drawer_screen" bindtap="setModalStatus" data-status='1' wx:if="{{showModalStatus}}"></view>
+  <view class='success_notice_box' style='background-image: url(https://wx.toworld-tech.cn/images/sc_bg.png);' wx:if="{{showModalStatus}}">
+      <view class='find_people_help'>
+        <image bindtap="setModalStatus" data-status='1' src='/images/shan.png' style='width:32rpx;height:32rpx;'></image>
+        <view style='padding-top:28px;font-size:36rpx;padding-left:40rpx;'>恭喜您</view>
+        <view style='font-size:30rpx;padding-left:40rpx;'>您成功砍掉{{cutprice}}元</view>
+        <button class='btn_take' bindtap='go_to_my_activity' data-id="{{kjid}}" >找人砍价</button>
+      </view>
+  </view>
+  
+  <view class='my_container'>
+    <view class='banner'>
+      <!-- <image src="{{banner}}" mode='aspectFill'></image> -->
+      <image src="/images/aaa.png" mode='aspectFill'></image>    
+    </view>
+
+    <view class='title'>
+      <view class='a1'></view>
+      <view class='a2'>活动产品</view>
+      <!-- <navigator url="../official_details/official_details?munber=1">
+        <view class='a3'>我参加的活动</view>
+      </navigator> 
+      <view class='a4'>
+        <image src="/images/2.png"></image>
+      </view>  -->
+    </view>
+
+    <view class='news_list'>
+      <view class='newss' wx:for="{{product}}">
+        <!-- <navigator class='news' url="/pages/details/details?id={{item.id}}&type=3"> -->
+        <view class='news'>
+          <view class='left'>
+            <image mode='aspectFill' src="{{item.banner}}"></image>
+          </view>
+          <view class='right'>
+            <view class='b_title'><view class='b_title_name'>{{item.name}}</view><view style="font-size:22rpx;color:#999;float:right;">已有{{item.joinnum}}人参与</view></view>
+            <view class='b_line'>
+              <view class='yd'>{{item.title}}</view>
+              <!-- <view class='rq'>{{item.create_time}}</view> -->
+            </view>
+            <view class='b_line c_line'>
+              <view class='yd'>￥{{item.price}}</view>
+              <view wx:if="{{item.activitystatus == 1 && item.status == 1}}" class='rq' data-id="{{item.id}}" bindtap="i_am_join">我要参与</view>
+              <view wx:elif="{{item.activitystatus == 1 && item.status == 2}}" class='rq' data-id="{{item.id}}" bindtap="go_to_my_activity">找人砍价</view>
+              <view wx:elif="{{item.activitystatus == 2}}" class='rq zanting' data-id="{{item.id}}">未开始</view>
+              <view wx:elif="{{item.activitystatus == 3}}" class='rq zanting' data-id="{{item.id}}">已暂停</view>
+              <view wx:elif="{{item.activitystatus == 4}}" class='rq guoqi' data-id="{{item.id}}">已过期</view>
+            </view>
+          </view>
+        </view>
+        <!-- </navigator> -->
+      </view>
+
+      <view class='notice_box'>
+          <view class="notice">
+            <image class="ab" src="/images/active_intro.png"></image>
+            <view class="aa">
+              
+              <text>1、砍价时间：12月8日-12月15日24：00，收快递费几十块付款后接收到否，收快递费几十块付款后接收到否。
+
+              2、砍价时间：12月8日-12月15日24：00，收快递费几十块付款后接收到否，收快递费几十块付款后接收到否。
+
+              3、砍价时间：12月8日-12月15日24：00，收快递费几十块付款后接收到否，收快递费几十块付款后接收到否。
+
+              4、砍价时间：12月8日-12月15日24：00，收快递费几十块付款后接收到否，收快递费几十块付款后接收到否。
+
+              </text>
+              
+            </view>
+          </view>
+      </view>
+      
+    </view>
+
+  </view>
+</view>

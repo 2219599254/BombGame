@@ -1,0 +1,52 @@
+/* pages/distri_record/distri_record.wxss */
+.container{
+  height: 100%;
+}
+.my_container{
+    width: 100%;
+    padding: 24rpx;
+    box-sizing:border-box;
+}
+.record_list,.distri_list_box{
+    padding: 30rpx;
+    background-color: #FFF;
+    border-radius: 10rpx;
+    box-shadow: 0 2rpx 2rpx #eee;
+    margin-bottom: 24rpx;
+}
+.record_list:after,.list_top:after,.list_bottom:after{
+    clear:both;
+    content:'.';
+    display:block;
+    width: 0;
+    height: 0;
+    visibility:hidden;
+}
+.list_top .title{
+    float: left;
+    font-size: 28rpx;
+    color: #333;
+}
+.list_top .money{
+    float: right;
+    font-size: 28rpx;
+    color: #ff3939;
+}
+.list_bottom .name{
+    float: left;
+    font-size: 24rpx;
+    color:#999;
+}
+.list_bottom .time{
+    float: right;
+    font-size: 24rpx;
+    color:#999;
+}
+.list_bottom{
+    margin-top: 20rpx;
+}
+/*11111  */
+.name .now_price{
+    font-size: 32rpx;
+    color: #FB1B1B;
+}

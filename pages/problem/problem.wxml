@@ -1,0 +1,23 @@
+<!--官网详情  -->
+<view>
+  <!--banner  -->
+  <view class='banner'>
+    <image mode="aspectFill" src="{{banner_list}}" class="slide-image" data-img="{{item}}"  />
+  </view>
+  <!-- 导航-->
+    <view class='nav_title'>
+    <!--标题  -->
+      <block wx:for="{{new_list}}">
+        <navigator url="../details/details?id={{item.id}}&type=4">
+          <view class='s_t1'>
+            <view class='t1'>{{item.title}}</view>
+            <image src="/images/18.png" class='a4'></image>
+            <view class='clear'></view>
+          </view>
+        </navigator>
+      </block>
+
+    </view>
+  
+    
+</view>

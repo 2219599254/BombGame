@@ -1,0 +1,55 @@
+/* pages/withdraw_record/withdraw_record.wxss */
+.container{
+  height: 100%;
+}
+.my_container{
+    width: 100%;
+    padding: 24rpx;
+    box-sizing:border-box;
+    background-color: #F7F7F7;
+}
+.record_list{
+    padding: 30rpx 20rpx;
+    background-color: #FFF;
+    border-radius: 10rpx;
+    box-shadow: 0 2rpx 2rpx #eee;
+    margin-bottom: 24rpx;
+}
+.record_list:after,.list_top:after,.list_bottom:after{
+    clear:both;
+    content:'.';
+    display:block;
+    width: 0;
+    height: 0;
+    visibility:hidden;
+}
+.list_top .title{
+    float: left;
+    font-size: 28rpx;
+    color: #333;
+}
+.list_top .money{
+    float: right;
+    font-size: 28rpx;
+    color: #ff3939;
+}
+.list_bottom .name{
+    float: left;
+    font-size: 24rpx;
+    color:#999;
+}
+.list_bottom .time{
+    float: right;
+    font-size: 24rpx;
+    color:#999;
+}
+.list_bottom{
+    margin-top: 20rpx;
+}
+/*默认提示  */
+.withdraw_record{
+    font-size: 28rpx;
+    color: #666;
+    text-align: center;
+    margin-top: 48rpx;
+}

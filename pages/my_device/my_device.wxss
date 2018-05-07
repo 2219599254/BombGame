@@ -1,0 +1,29 @@
+/* pages/my_device/my_device.wxss */
+.container{
+  height: 100%;
+}
+.my_container{
+  width: 100%;
+}
+.big_box .title{
+  padding: 0 24rpx;
+  line-height: 60rpx;
+  font-size: 28rpx;
+  color: #666;
+}
+.big_box input{
+  padding: 24rpx;
+  background-color: #FFF;
+}
+.btn{
+  width: 680rpx;
+  background: #ff3939; 
+  color: #fff;
+  height: 82rpx;
+  line-height: 82rpx;
+  font-size: 28rpx;
+  text-align: center;
+  margin: 0 auto;
+  margin-top: 68rpx;
+  margin-bottom: 64rpx;
+}

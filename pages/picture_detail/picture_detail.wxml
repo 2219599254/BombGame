@@ -1,0 +1,70 @@
+<!--pages/picture_detail/picture_detail.wxml-->
+<view class='container'>
+  <view class='my_container'>
+
+    <view class='myPicture_box'>
+
+        <view class='raiders_list' >
+          <view class='comment_head'>
+            <image class='image' mode="aspectFill" src='{{article_detail.avatarurl}}' style='width:68rpx;height:68rpx;'></image>
+            <view class='name_and_time'>
+              <view class='name'>{{article_detail.username}}</view>
+              <view class='time'><span>{{article_detail.create_time}}</span></view>
+            </view>
+          </view>
+
+          <view class='comment_cont'>{{article_detail.content}}</view>
+          <view wx:if="{{article_detail.banner < 2}}">
+              <image mode="aspectFill" bindtap='previewImage' data-img='{{item}}' wx:for="{{article_detail.banner}}"  src='{{item}}' style='width:500rpx;height:322rpx;border-radius:10rpx;'></image>
+          </view>
+          
+          <view wx:else class='parent'>
+              <image mode="aspectFill" bindtap='previewImage' data-img='{{item}}' wx:for="{{article_detail.banner}}" class='child'  src='{{item}}' style='width:228rpx;height:228rpx;border-radius:10rpx;'></image>
+          </view>
+
+          <view class='video_info' style='padding:20rpx 0;'>
+            <span style="float:left;color:#999;font-size:24rpx;">{{article_detail.scannum}}阅读</span>
+
+            <image wx:if="{{!article_detail.prise}}" bindtap='commet_click_praise' data-commentid='{{article_detail.id}}' data-type='article' class='image1' src='/images/zan1.png' style='width:36rpx;height:36rpx;'></image>
+            <image wx:else class='image1' src='/images/zan2.png' style='width:36rpx;height:36rpx;'></image>
+
+            <span style="margin:0 24rpx 0 10rpx;">{{article_detail.goodnum}}</span>
+            <image class='image1' src='/images/new.png' style='width:40rpx;height:35rpx;'></image>
+            <span style="margin:0 24rpx 0 10rpx;">{{article_detail.comnum}}</span>
+            <button class='comment_share_btn' data-shareid='{{article_detail.id}}' open-type="share"><image class='image1' src='/images/share.png' style='width:36rpx;height:39rpx;'></image></button>
+          </view>
+
+        </view>
+
+    </view>
+    <view class='title'>
+      <view class='a1'></view>
+      <view class='a2'>全部评论<span style="font-size:24rpx;color:#999;margin-left:12rpx;">({{article_detail.comnum}}条)</span></view>
+    </view>
+
+    <view class='comment_people_list'>
+      <view class='comment_people' wx:for="{{list}}">
+        <view class='top_cont_box'>
+          <image class='image1' src='{{item.avatarurl}}' style='width:68rpx;height:68rpx;'></image>
+          <view class="text1">{{item.username}}</view>
+          <span style="color:#999;">{{item.goodnum}}</span>
+          <image wx:if="{{!item.prise}}" bindtap='commet_click_praise2' data-commentid='{{item.id}}' data-type='article_comment' src='/images/zan1.png' style='width:36rpx;height:36rpx;margin-left:12rpx;'></image>
+          <image wx:else class='image2' src='/images/zan2.png' style='width:36rpx;height:36rpx;margin-left:12rpx;'></image>
+        </view>
+
+        <view class='cont_detail'>{{item.content}}</view>
+      </view>
+      
+    </view>
+
+    <view class='bottom_input_send'>
+       <view class='left_input'>
+          <input name="phone"  placeholder="说点什么吧..." maxlength="50" class="inp_1" value="{{receiver_phone}}" bindinput="bindinput"placeholder-style="font-size:28rpx;color:#999999;opacity: 0.5;"/>
+          <button class='video_share_btn' data-shareid='{{article_detail.id}}' open-type="share"><image src='/images/share.png' style='width:36rpx;height:39rpx;'></image></button>
+          <span style="color:#FB1B1B;margin-right:32rpx;" bindtap='send_comment' data-type="article">发送</span>
+      </view>
+      <view class=''></view> 
+    </view>
+
+  </view>
+</view>

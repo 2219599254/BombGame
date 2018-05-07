@@ -1,0 +1,17 @@
+.coment{
+  padding: 0 24rpx;
+}
+.tlite{
+  color: #000;
+  font-size: 36rpx;
+  margin: 40rpx 0 50rpx 0;
+  line-height: 50rpx;
+}
+.look{
+  color: #999;
+  font-size: 24rpx;
+  margin-bottom: 38rpx;
+}
+.look span:nth-child(2){
+  margin-left: 100rpx;
+}

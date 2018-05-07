@@ -1,0 +1,60 @@
+<!--官网详情  -->
+<import src="../../wxParse/wxParse.wxml" />
+<view>
+  <!--banner  -->
+  <view class='banner'>
+    <image mode="aspectFill" src="/images/12.png" class="slide-image" />
+  </view>
+  <!-- 导航-->
+  <view class='nav_title'>
+    <view class="t1 {{_mun==1?'activ':''}}" bindtap='nav' data-mun='1' data-body='企业简介'>企业简介</view>
+    <view class="t1 {{_mun==2?'activ':''}}" bindtap='nav' data-mun='2' data-body='品牌介绍'>品牌介绍</view>
+    <view class="t1 {{_mun==3?'activ':''}}" bindtap='nav' data-mun='3' data-body='公司荣誉'>公司荣誉</view>
+    <view class="t1 {{_mun==4?'activ':''}}" bindtap='nav' data-mun='4' style='margin-right: 0rpx;' data-body='公司动态'>公司动态</view>
+  </view>
+  <!--内容  -->
+  <view class='coment'>
+    <!--标题  -->
+    <view class='a1'></view>
+    <view class='a2'>{{nav_tilte}}</view>
+    <!--企业简介  -->
+    <view class='introduction' wx:if="{{_mun==1}}">
+      <view class='wxParse'>
+        <template is="wxParse" data="{{wxParseData:article1.nodes}}" />
+      </view>
+    </view>
+    <!--品牌介绍  -->
+    <view class='brand' wx:if="{{_mun==2}}">
+      <view class='wxParse'>
+        <template is="wxParse" data="{{wxParseData:article2.nodes}}" />
+      </view>
+    </view>
+    <!--公司荣誉  -->
+    <view class='honor' wx:if="{{_mun==3}}">
+      <view class='v_img' wx:for="{{company_honor}}">
+        <image src="{{item.pic}}" bindtap="preview_img" mode="aspectFill" data-pic="{{item.pic}}"></image>
+        <view class="name">{{item.title}}</view>
+      </view>
+
+      <!--清楚样式  -->
+      <view class='clear'></view>
+    </view>
+    <!--公司动态  -->
+    <view class='dynamic' wx:if="{{_mun==4}}">
+      <block wx:for="{{company_news}}">
+
+        <view class='v_img2'>
+          <navigator url="/pages/details/details?id={{item.id}}&type=2">
+            <image src="{{item.pic}}"></image>
+            <view class="name">{{item.title}}</view>
+          </navigator>
+        </view>
+
+      </block>
+
+      <!--清楚样式  -->
+      <view class='clear'></view>
+    </view>
+  </view>
+
+</view>

@@ -1,0 +1,15 @@
+<!--pages/share_page/share_page.wxml-->
+<view class="container">
+    <!--要申请  -->
+    <view class="my_container">
+      <view class="bg_mask" wx:if="{{mask_show_or_hide}}"></view>
+      <view class="top_notice" wx:if="{{mask_show_or_hide}}">
+        <view class="img1_box">
+            <image class="img1" src="/images/jiantou.png" alt="" style="width:140rpx;height:114rpx;margin-right:38rpx;"></image>
+            <view class="text_notice">点击右上角按钮，分享给好友</view>
+        </view>
+        <image class="img2" src="/images/yes2.png" alt="" style="width:318rpx;height:80rpx;"></image>
+      </view>
+
+    </view>
+</view>

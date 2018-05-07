@@ -1,0 +1,6 @@
+<!--pages/cut_down_record/cut_down_record.wxml-->
+<view class='container'>
+    <view class='my_container'>
+      <view></view>
+    </view>
+</view>

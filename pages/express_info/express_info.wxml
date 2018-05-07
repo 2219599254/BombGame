@@ -1,0 +1,30 @@
+<!--pages/express_info/express_info.wxml-->
+<view class='container'>
+  <view class='my_container'>
+    <!-- <block wx:for="{{info_list}}"> -->
+      <view class='head_cont'>
+          <view class='stadus'>物流状态：
+              <span wx:if="{{info_list.deliverystatus == '1'}}" style="color:#fe0000">在途中</span>
+              <span wx:elif="{{info_list.deliverystatus == '2'}}" style="color:#fe0000">派件中</span>
+              <span wx:elif="{{info_list.deliverystatus == '3'}}" style="color:#fe0000">已签收</span>
+              <span wx:elif="{{info_list.deliverystatus == '4'}}" style="color:#fe0000">已拒收</span>
+          </view>
+          <view class='aaa'>承运公司：{{info_list.express_name}}</view>
+          <view class='aaa'>运单编号：{{info_list.express_number}}</view>
+          <view class='aaa' wx:if="{{info_list.express_tel == ''}}">官方电话：暂无</view>
+          <view class='aaa' wx:else>官方电话：{{info_list.express_tel}}</view>
+      </view>
+
+      <view class='my_express_info'>
+
+          <view class='list' wx:for="{{info_list.list}}">
+            <view class='list_child_box'>
+              <view class='list_child'>{{item.status}}</view>
+              <view class='is_time'>{{item.time}}</view>
+            </view>
+          </view>
+
+      </view>
+    <!-- </block> -->
+  </view>
+</view>

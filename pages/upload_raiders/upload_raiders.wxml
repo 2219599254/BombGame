@@ -1,0 +1,46 @@
+<!--pages/upload_raiders/upload_raiders.wxml-->
+<view class='container'>
+    <view class='my_container'>
+        <form bindsubmit="formSubmit" report-submit="true">
+            <view class="textarea_box">
+                <textarea   placeholder="分享攻略..." placeholder-style="color:#999;" name="raiders"/>
+            </view>
+
+
+
+            <!-- <view class='upload_photo_madil'>
+          <view class='image_list'><image src='/images/girl.png' style='width:120rpx;height:120rpx;' mode='aspectFill'></image></view>
+          <view class='' bindtap='uploadFile'></view>
+      </view> -->
+            <view class="s_div h100">
+                <view class="weui-uploader">
+                    <view class="weui-uploader__bd">
+                        <block wx:if="{{banner_list.length>=6}}">
+                            <block wx:for="{{banner_list}}">
+                                <view class="ul weui-uploader__files upload_part1 banner_list" num="4" id="uploaderFiles">
+                                    <view class="li weui-uploader__file">
+                                        <view class="span delete_img" bindtap="deteleImg" data-img="{{index}}"  ></view>
+                                        <image src="{{item}}" mode="aspectFill" bindtap="preview_image" data-img="{{item}}"></image>
+                                    </view>
+                                </view>
+                            </block>
+                        </block>
+                        <block wx:else>
+                            <block wx:for="{{banner_list}}">
+                                <view class="ul weui-uploader__files upload_part1 banner_list" num="4" id="uploaderFiles">
+                                    <view class="li weui-uploader__file">
+                                        <view class="span delete_img" bindtap="deteleImg" data-img="{{index}}"></view>
+                                        <image src="{{item}}" mode="aspectFill" bindtap="preview_image" data-img="{{item}}"></image>
+                                    </view>
+                                </view>
+                            </block>
+                            <view class="weui-uploader__input-box  input-box uploader_part1" style="opacity: ; display: ;" bindtap="upload_image"></view>
+                        </block>
+                    </view>
+                </view>
+            </view>
+            <button class="btm_red_btn" formType="submit" >发表</button>
+        </form>
+    </view>
+    <!-- <view class='btm_red_btn' >发表</view> -->
+</view>

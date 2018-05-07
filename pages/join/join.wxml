@@ -1,0 +1,41 @@
+<view class="big_view">
+  <!--banner-->
+  <swiper indicator-dots="{{indicatorDots}}" autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}" circular="true" id="banner_img">
+    <block wx:for="{{imgUrls}}">
+      <swiper-item>
+        <image mode="aspectFill" src="{{item}}" bindtap="banner_preview" class="slide-image" data-img="{{item}}" />
+      </swiper-item>
+    </block>
+  </swiper>
+  <!--表单  -->
+  <form bindsubmit="formSubmit" bindreset="formReset">
+    <view class="c1">
+      <view class="inp_1">
+        <label>城市</label>
+        <input name="city" placeholder="请输入所在城市" maxlength="10" class="city" placeholder-style=" font-family: 'PingFang SC','sans-serif','Microsoft YaHei','Arial';color:rgba(153,153,153,0.5);" />
+      </view>
+      <view class="inp_1">
+        <label>姓名</label>
+        <input name="name" placeholder="请输入姓名" maxlength="6" class="name" placeholder-style=" font-family: 'PingFang SC','sans-serif','Microsoft YaHei','Arial';color:rgba(153,153,153,0.5);" />
+      </view>
+      <view class="inp_1" style="border:none">
+        <label>联系电话</label>
+        <input name="phone" placeholder="请输入联系电话" maxlength="11" class="name" placeholder-style=" font-family: 'PingFang SC','sans-serif','Microsoft YaHei','Arial';color:rgba(153,153,153,0.5);" />
+      </view>
+    </view>
+
+    <view class='message_box'>
+      <view class='message'>留言</view>
+      <textarea name="message" class='live_message' placeholder="您可以输入具体需求，方便我们为您提供更好的服务" maxlength="200" placeholder-style="font-size:28rpx;color:#D0D0D0;"> </textarea>
+    </view>
+
+    <!--底部  -->
+    <view class="foot">
+      <button class="btn" formType="submit" style="pointer-events:{{submit1}}">{{submit}}</button>
+      <view class="lian_xi" bindtap="phone">
+        <image src="/images/9.png" class="icon_9"></image>
+        <text style='color:#ff0000'>咨询热线</text>
+      </view>
+    </view>
+  </form>
+</view>

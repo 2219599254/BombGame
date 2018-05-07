@@ -1,0 +1,53 @@
+/* pages/distri_code/distri_code.wxss */
+.container{
+    background-color: #FFF;
+}
+.qr_code_box{
+    width: 100%;
+    height: 500rpx;
+    position: relative;
+    background-color: #F7F7F7;
+}
+.qr_code_box .aaa{
+    font-size: 0;
+    text-align: center;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    overflow: hidden;
+    -webkit-transition-property: -webkit-transform,opacity;
+    transition-property: transform,opacity;
+    transform: translate(-50%, -50%);
+}
+.qr_code_box .aaa .txt{
+    font-size: 20rpx;
+    color: #666;
+    margin-top: 14rpx;
+}
+
+/* ------------ */
+.text_notice{
+    height: 400rpx;
+    padding-left: 24rpx;
+    padding-top: 24rpx;
+}
+.text_notice .title{
+    font-size: 28rpx;
+    color: #666;
+    height: 62rpx;
+    line-height: 62rpx;
+    border-bottom: 2rpx solid #e7e7e7;
+}
+.text_notice .text1{
+    font-size: 24rpx;
+    color: #999;
+    padding: 24rpx 70rpx 24rpx 50rpx;
+    position: relative;
+}
+.text_notice .text1 .number{
+    font-size: 40rpx;
+    color: #BBB;
+    position: absolute;
+    top: 18rpx;
+    left: 0rpx;
+}

@@ -1,0 +1,138 @@
+page{
+  background: #f7f7f7;
+}
+.big_view{
+  font-family: 'PingFang SC','sans-serif','Microsoft YaHei','Arial';
+}
+#banner_img image,.big_view swiper{
+    width: 750rpx;
+    height: 334rpx;
+}
+.tilte{
+  font-size: 32rpx;
+  color: #666;
+  height: 80rpx;
+  line-height: 80rpx;
+  margin-left: 24rpx;
+}
+.tilte text{
+  color: #ff7224;
+}
+.c1{
+  background: white;
+  margin-top: 24rpx;
+}
+.map{
+  width: 100%;
+  /* text-align: center; */
+}
+.map_picture{
+  float: left;
+  padding-bottom: 22rpx;
+  padding-left: 24rpx;
+}
+.map_picture1{
+  float:right;
+  padding-bottom: 22rpx;
+  padding-right: 24rpx;
+}
+.info{
+  color: #151515;
+  font-size: 28rpx;
+  background: #ffffff;
+  /* height: 80rpx; */
+  padding-top: 30rpx;
+  padding-bottom: 22rpx;
+}
+.inp{
+  padding-left: 24rpx;
+  background: #fff;
+}
+.inp_1{
+  border-bottom:1px solid rgba(153,153,153,0.1);
+  background: #fff;
+  font-size: 32rpx;
+  padding-top: 30rpx;
+  padding-bottom: 30rpx;
+  height: 38rpx;
+  margin-left:24rpx;
+}
+.inp_1 label{
+  float: left;
+ color: #333;
+ font-size: 32rpx;
+
+}
+.inp_1 input{
+  text-align: right;
+  font-size: 32rpx;
+  padding-right: 24rpx;
+}
+.text{
+  width: 750rpx;
+}
+.liu_yan{
+  padding-top: 22rpx;
+  padding-left: 24rpx;
+  font-size: 28rpx;
+  height: 238rpx;
+  line-height: 30rpx;
+  padding-right:24rpx; 
+  width: 700rpx;
+  word-wrap:break-word;
+  }
+.foot{
+  background: #f7f7f7;
+padding-top: 90rpx;
+padding-bottom: 60rpx;
+}
+.btn{
+  background: #ff0000;
+  color: white;
+  margin: 0rpx 26rpx 26rpx 26rpx;
+  height: 100rpx;
+  padding-top: 10rpx;
+  font-size: 32rpx;
+  text-align: center;
+  border-radius: 6rpx;
+  line-height: 90rpx;
+}
+.lian_xi {
+  color: #ffbb1b;
+  font-size: 28rpx;
+  text-align: center;
+  width: 180rpx;
+  height: 30rpx;
+  margin: 0 auto;
+  padding: 10rpx;
+}
+.icon_9{
+  width: 30rpx;
+  height: 30rpx;
+  margin-right: 16rpx;
+  position: relative;
+  top: 3rpx;
+}
+
+/* 留言 */
+.message_box{
+   width: 100%; 
+  margin-top:24rpx; 
+}
+.message{
+   border-bottom:1px solid rgba(153,153,153,0.1);
+  background: #fff;
+  font-size: 32rpx;
+  padding-top: 30rpx;
+  padding-bottom: 30rpx;
+  height: 38rpx;
+  padding-left:24rpx;
+}
+.live_message{
+  width:100%;
+  padding: 24rpx;
+  font-size: 28rpx;
+  background-color: #ffffff;
+  box-sizing: border-box;
+  height: 160rpx;
+}

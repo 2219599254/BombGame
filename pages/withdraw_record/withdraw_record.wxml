@@ -1,0 +1,35 @@
+<!--pages/withdraw_record/withdraw_record.wxml-->
+<view class="container">
+    <view class="my_container">
+    <!--无数据默认提示  -->
+    <view class="withdraw_record" wx:if="{{apply_records.length==0}}">您暂无提现记录哦~</view>
+    <!--提现记录  -->
+    <block wx:for="{{apply_records}}">
+        <view class="record_list" wx:if="{{item.apply_status == 1}}">
+            <view class="cont_box">
+                <view class="list_top">
+                    <view class="title">提现(申请中)</view>
+                    <view class="money"><span>-</span>￥{{item.apply_sum}}</view>
+                </view>
+                <view class="list_bottom">
+                    <view class="name">{{item.pay_method}}：{{item.pay_account}}</view>
+                    <view class="time">{{item.create_time}}</view>
+                </view>
+            </view>
+        </view>
+
+        <view class="record_list" wx:elif="{{item.apply_status == 2}}">
+            <view class="cont_box">
+                <view class="list_top">
+                    <view class="title">提现（成功）</view>
+                    <view class="money"><span>-</span>￥{{item.apply_sum}}</view>
+                </view>
+                <view class="list_bottom">
+                    <view class="name">{{item.pay_method}}：{{item.pay_account}}</view>
+                    <view class="time">{{item.create_time}}</view>
+                </view>
+            </view>
+        </view>
+    </block>
+    </view>
+</view>

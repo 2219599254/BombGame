@@ -1,0 +1,13 @@
+<view class='coment'>
+<!--标题  -->
+  <view class='tlite'>大王叫我来巡山，巡花姑娘,大王叫我来巡山，巡花姑娘大王叫我来巡山，巡花姑娘大王叫我来巡山，巡花姑娘大王叫我来巡山，巡花姑娘</view>
+  <!--阅读  -->
+  <view class='look'>
+    <span>阅读：1212</span>
+    <span>2017/10/15</span>
+  </view>
+  <!--副文本  -->
+  <view>
+  
+  </view>
+</view>

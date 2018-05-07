@@ -1,0 +1,171 @@
+<!--pages/order_detail/order_detail.wxml-->
+<view class="container">
+    <view class="my_container">
+        <!--订单状态  -->
+        <view class="icon_title" wx:if="{{orders_info.orders_status == '1'}}">
+            <view class="title_and_img">
+                <view class="top_box">
+                    <image src="/images/order_1.png" style="width:40rpx;height:45rpx;"></image>
+                    <span>待支付</span>
+                </view>
+                <view class="count_down">剩余付款时间：{{wxTimer}}</view>
+            </view>
+        </view>
+        <view class="icon_title" wx:elif="{{orders_info.orders_status == '2'}}">
+            <view class="title_and_img">
+                <view class="top_box">
+                    <image src="/images/order_2.png" style="width:49rpx;height:39rpx;top:8rpx;"></image>
+                    <span>待发货</span>
+                </view>
+            </view>
+        </view>
+        <view class="icon_title" wx:elif="{{orders_info.orders_status == '3'}}">
+            <view class="title_and_img">
+                <view class="top_box">
+                    <image src="/images/order_3.png" style="width:42rpx;height:42rpx;"></image>
+                    <span>待收货</span>
+                </view>
+            </view>
+        </view>
+        <view class="icon_title" wx:elif="{{orders_info.orders_status == '4'}}">
+            <view class="title_and_img">
+                <view class="top_box">
+                    <image src="/images/order_4.png" style="width:44rpx;height:44rpx;"></image>
+                    <span>交易完成</span>
+                </view>
+            </view>
+        </view>
+        <!--地址-待付款-给修改  -->
+        <view class="click_right2 addclass2" wx:if="{{orders_info.orders_status == '1'}}">
+          <!-- <block wx:for="{{address_stadus}}"> -->
+            <navigator url="/pages/my_address/my_address?aid={{item.aid}}">
+                <view class="aaa2" style="border:0;">
+
+                  <view class="address_box"><image src="/images/address.png" style="width:36rpx;height:48rpx;"></image></view>
+                  
+                  <view class="detail_address_box">
+                      <view class="let_center">
+                          <view class="name_and_phone" style="font-size:28rpx;color:#333;">{{orders_info.orders_receiver_name}}<span style="margin-left:30rpx;">{{orders_info.orders_receiver_phone}}</span></view>
+                          <view class="_address" style="font-size:24rpx;color:#999;">{{orders_info.orders_receiver_address}}</view>
+                      </view>
+                  </view>
+
+                  <view class="bbb" >
+                      <image src="/images/right.png" style="width:14rpx;height:24rpx;"></image>
+                  </view>
+
+                </view>
+            </navigator>
+          <!-- </block> -->
+        </view>
+        <!--待发货、待收货、交易完成-不给该地址  -->
+        <view class="click_right2 addclass2" wx:else >
+          <!-- <block wx:for="{{address_stadus}}"> -->
+                <view class="aaa2" style="border:0;">
+
+                  <view class="address_box"><image src="/images/address.png" style="width:36rpx;height:48rpx;"></image></view>
+                  
+                  <view class="detail_address_box">
+                      <view class="let_center">
+                          <view class="name_and_phone" style="font-size:28rpx;color:#333;">{{orders_info.orders_receiver_name}}<span style="margin-left:30rpx;">{{orders_info.orders_receiver_phone}}</span></view>
+                          <view class="_address" style="font-size:24rpx;color:#999;">{{orders_info.orders_receiver_address}}</view>
+                      </view>
+                  </view>
+
+                  <view class="bbb" >
+                      <image src="/images/right.png" style="width:14rpx;height:24rpx;"></image>
+                  </view>
+
+                </view>
+          <!-- </block> -->
+        </view>
+
+        <!-- 商品信息 -->
+        <view class="product_list2_box">
+          <block wx:for="{{orders_info.orders_goods_list}}"> 
+            <navigator url='/pages/product_detail/product_detail?gid={{item.gid}}'>
+              <view class="product_list2">
+                  <view class="product_left">
+                      <image src="{{item.banner_list}}" mode="aspectFill"></image>
+                  </view>
+                  <view class="product_right">
+                      <view class="title">{{item.goods_title}}</view>
+                      <view class="colour" wx:if="{{item.main_style_name!==''}}">
+                        <span>{{item.main_style_name}}：{{item.main_style_tags}}</span>
+                        <span wx:if="{{item.sub_style_name!==''}}">；{{item.sub_style_name}}：{{item.sub_style_tags}}</span>
+                      </view>
+                      <view class="money"><text class="text">￥{{item.discount_price}}</text><text class="num">x{{item.buy_num}}</text></view>
+                  </view>
+              </view>
+            </navigator>
+          </block> 
+        </view>
+
+        <!--我是订单信息  -->
+        <view class="click_right">
+          <view class="aaa">商品合计：
+            <view class="ccc" style="color:#333;right:24rpx;">￥{{orders_info.orders_sum_price}}</view>
+          </view>
+      
+          <view class="aaa">运费：
+            <view class="ccc" style="color:#333;right:24rpx;">+￥{{orders_info.orders_sum_fare_price}}</view>
+          </view>
+          <view class="aaa">积分：
+            <view class="ccc" style="color:#333;right:24rpx;">-￥{{orders_info.integral_cut_price}}</view>
+          </view>
+      
+          <view class="aaa">优惠券：
+            <view class="ccc" style="color:#333;right:24rpx;">-￥{{orders_info.coupon_cut_price}}</view>
+          </view>
+      
+          <view class="aaa" style="border:0;">总计：
+            <view class="ccc" style="color:#ff3939;right:24rpx;" >￥{{orders_info.orders_real_pay_price}}</view>
+          </view>
+      </view>
+
+    <form bindsubmit="formSubmit" report-submit="true">
+      <!--我是下单时间和订单编号  -->
+      <view class="order_cont" wx:if="{{orders_info.orders_status == '1'}}">
+          <view class="number_top">订单编号：<span style="color:#666;">{{orders_info.orders_encode}}</span></view>
+          <view class="order_time">下单时间：<span style="color:#666;">{{orders_info.orders_create_time}}</span></view>
+          <!-- <view class="cancel_btn" bindtap="cancel_order" data-orderid="{{orders_info.oid}}" data-oedercode="{{orders_info.orders_encode}}">取消订单</view> -->
+          
+          <button class="cancel_btn" form-type="submit" bindtap='cancel_order' data-orderid="{{orders_info.oid}}" data-oedercode="{{orders_info.orders_encode}}">取消订单</button>
+          
+      </view>
+      <view class="order_cont" wx:elif="{{orders_info.orders_status == '2'}}">
+          <view class="number_top">订单编号：<span style="color:#666;">{{orders_info.orders_encode}}</span></view>
+          <view class="order_time">下单时间：<span style="color:#666;">{{orders_info.orders_create_time}}</span></view>
+          <view class="order_time">付款时间：<span style="color:#666;">{{orders_info.orders_payment_time}}</span></view>
+      </view>
+      <view class="order_cont" wx:elif="{{orders_info.orders_status == '3'}}">
+          <view class="number_top">订单编号：<span style="color:#666;">{{orders_info.orders_encode}}</span></view>
+          <view class="order_time">下单时间：<span style="color:#666;">{{orders_info.orders_create_time}}</span></view>
+          <view class="order_time">付款时间：<span style="color:#666;">{{orders_info.orders_payment_time}}</span></view>
+          <view class="order_time">发货时间：<span style="color:#666;">{{orders_info.orders_deliver_time}}</span></view>
+          <view class="order_time addclass">快递单号：<span style="color:#666;">{{orders_info.express_number}}</span>
+              <button class="span" bindtap="copy" data-account="{{orders_info.express_number}}">一键复制</button>
+          </view> 
+          <view class="order_time">快递公司：<span style="color:#666;">{{orders_info.express_company}}</span></view>
+      </view>
+      <view class="order_cont" wx:elif="{{orders_info.orders_status == '4'}}">
+          <view class="number_top">订单编号：<span style="color:#666;">{{orders_info.orders_encode}}</span></view>
+          <view class="order_time">下单时间：<span style="color:#666;">{{orders_info.orders_create_time}}</span></view>
+          <view class="order_time">付款时间：<span style="color:#666;">{{orders_info.orders_payment_time}}</span></view>
+          <view class="order_time">发货时间：<span style="color:#666;">{{orders_info.orders_deliver_time}}</span></view>
+          <view class="order_time">收货时间：<span style="color:#666;">{{orders_info.orders_received_time}}</span></view>   
+      </view>
+      <!-- <view class="payMoneyBtn" wx:if="{{orders_info.orders_status == '1'}}" bindtap="go_payment" data-orderid="{{orders_info.oid}}" data-oedercode="{{orders_info.orders_encode}}">去支付</view> -->
+      <button class="payMoneyBtn commonColor" wx:if="{{orders_info.orders_status == '1'}}" form-type="submit" bindtap='go_payment' data-orderid="{{orders_info.oid}}" data-oedercode="{{orders_info.orders_encode}}">去支付</button>
+      <!--确认收货  -->
+      <view class="confirm_btn" wx:if="{{orders_info.orders_status == '3'}}">
+          <view class="confirm_btn_left" data-phone="12345678910">
+              <button class='btn commonColor' style='border:0;' open-type="contact">联系客服</button>
+          </view>
+          <view class="confirm_btn_right">
+              <button class='btn2 commonBg' form-type="submit" bindtap="confirm_receipt" data-orderid="{{orders_info.oid}}" data-ordercode="{{orders_info.orders_encode}}">确认收货</button>
+          </view>
+      </view>
+    </form>
+    </view>
+</view>

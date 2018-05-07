@@ -1,0 +1,212 @@
+/* pages/order_detail/order_detail.wxss */
+@import "../../common/common.wxss";
+.my_container{
+    width: 100%;
+    /* height: 100%; */
+    position: relative;
+    padding-bottom: 124rpx;
+    background-color: #F7F7F7;
+}
+.icon_title{
+    width: 100%;
+    background-color: #FFF;
+    height: 148rpx;
+    border-bottom: 2rpx solid #E7E7E7;
+    text-align: center;
+    position: relative;
+}
+.icon_title .title_and_img{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    overflow: hidden;
+    -webkit-transition-property: -webkit-transform,opacity;
+    transition-property: transform,opacity;
+    transform: translate(-50%, -50%);
+}
+.title_and_img .top_box{
+    font-size: 0;
+    margin-bottom: 6rpx;
+}
+.title_and_img .top_box image{
+    font-size: 0;
+    position: relative;
+    top: 12rpx;
+}
+.title_and_img span{
+    color: #333;
+    font-size: 32rpx;
+    margin-left: 12rpx;
+}
+.title_and_img .count_down{
+    font-size: 24rpx;
+    color: #333;
+}
+/*地址  */
+.click_right2{
+    padding: 0 24rpx;
+    background-color: #FFF;
+}
+.aaa2:after{
+    clear:both;
+    content:'.';
+    display:block;
+    width: 0;
+    height: 0;
+    visibility:hidden;
+}
+
+.address_box{
+    float: left;
+    margin-right: 32rpx;
+    position: relative;
+    height:138rpx;
+    width: 36rpx;
+}
+
+.address_box image{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    overflow: hidden;
+    -webkit-transition-property: -webkit-transform,opacity;
+    transition-property: transform,opacity;
+    transform: translate(-50%, -50%);
+}
+.aaa2 .bbb{
+    float: right;
+    width: 14rpx;
+    height:138rpx;
+    position: relative
+}
+.aaa2 .bbb image{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    overflow: hidden;
+    -webkit-transition-property: -webkit-transform,opacity;
+    transition-property: transform,opacity;
+    transform: translate(-50%, -50%);
+}
+
+.detail_address_box{
+    float: left;
+    width: 510rpx;
+    height: 138rpx;
+    position: relative;
+}
+.detail_address_box .let_center{
+    width: 510rpx;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    overflow: hidden;
+    -webkit-transition-property: -webkit-transform,opacity;
+    transition-property: transform,opacity;
+    transform: translate(-50%, -50%);
+}
+/*取消订单和支付  */
+.order_cont{
+    margin-top: 24rpx;
+    background-color: #FFF;
+    padding: 16rpx 24rpx;
+    position: relative;
+}
+.order_cont .number_top,.order_cont .order_time{
+    width: 100%;
+    height: 48rpx;
+    line-height: 48rpx;
+    font-size: 28rpx;
+    color: #999;
+}
+.order_time.addclass{
+    position: relative;
+}
+.order_time.addclass .span{
+    position: absolute;
+    right: 0;
+    top: 2rpx;
+    /* border: 2rpx solid #999;
+    border-radius: 10rpx; */
+    width:162rpx;
+    height:52rpx;
+    line-height:52rpx;
+    text-align:center;
+    border-radius:10rpx;
+    font-size:26rpx;
+    color:#999;
+    background-color: #FFF;
+}
+.order_cont .cancel_btn{
+    position: absolute;
+    right: 24rpx;
+    top: 44rpx;
+
+    width:162rpx;
+    height:52rpx;
+    line-height:52rpx;
+    text-align:center;
+    border-radius:10rpx;
+    font-size:26rpx;
+    color:#999;
+    background-color: #FFF;
+}
+.payMoneyBtn{
+     position: fixed;
+    bottom:0;  
+    width: 100%;
+    height: 100rpx;
+    line-height: 100rpx;
+    text-align: center;
+    background-color: #FFF;
+    /* color: #ff3939; */
+    font-size: 32rpx;
+    margin-top: 24rpx;
+}
+.payMoneyBtn::after{
+    border:0;
+}
+/*确认收货  */
+.confirm_btn{
+    width: 100%;
+    height: 100rpx;
+    background-color: pink;
+    position: fixed;
+    bottom: 0;
+}
+.confirm_btn .confirm_btn_left,.confirm_btn .confirm_btn_right{
+    float: left;
+    width: 50%;
+    height: 100%;
+    text-align: center;
+    line-height: 100rpx;
+}
+.confirm_btn .confirm_btn_left{
+     color: #ff3939; 
+    background-color: #FFF;
+}
+.confirm_btn_left .btn{
+    width: 330rpx;
+    height: 98rpx;
+    font-size: 28rpx;
+    background-color: #FFF;
+    line-height: 98rpx;
+    /* color: #ff3939; */
+}
+.confirm_btn_left .btn::after {
+    border: 0;
+}
+.confirm_btn .confirm_btn_right{
+    color: #FFF;
+    background-color: #ff3939;
+}
+.confirm_btn_right .btn2{
+    /* background-color: #ff3939; */
+    font-size: 28rpx;
+    height: 100rpx;
+    line-height: 100rpx;
+    color: #FFF;
+}
+.confirm_btn_right .btn2::after{
+    border: 0;
+}

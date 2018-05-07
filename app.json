@@ -1,0 +1,43 @@
+{
+  "pages": [
+    "pages/index/index",
+    "pages/official_details/official_details",
+    "pages/dynamic_details/dynamic_details",
+    "pages/journalism/journalism",
+    "pages/distri_page/distri_page",
+    "pages/distri_code/distri_code",
+    "pages/distri_record/distri_record",
+    "pages/distri_people/distri_people",
+    "pages/share_page/share_page",
+    "pages/problem/problem",
+    "pages/details/details",
+    "pages/coupon_center/coupon_center",
+    "pages/my_coupon/my_coupon",
+    "pages/withdraw_page/withdraw_page",
+    "pages/my_address/my_address",
+    "pages/my_device/my_device",
+    "pages/product_detail/product_detail",
+    "pages/my_order/my_order",
+    "pages/join/join",
+    "pages/order_confirm/order_confirm",
+    "pages/activity/activity",
+    "pages/my_activity/my_activity",
+    "pages/cut_down_record/cut_down_record",
+    "pages/help_bargain/help_bargain",
+    "pages/onekey_modular_detail/onekey_modular_detail",
+    "pages/withdraw_record/withdraw_record",
+    "pages/upload_raiders/upload_raiders",
+    "pages/video_detail/video_detail",
+    "pages/order_detail/order_detail",
+    "pages/picture_detail/picture_detail",
+    "pages/jijin/jijin",
+    "pages/express_info/express_info",
+    "pages/classify/classify"
+  ],
+  "window": {
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#ffffff",
+    "navigationBarTitleText": "WeChat",
+    "navigationBarTextStyle": "black"
+  }
+}

@@ -1,0 +1,45 @@
+<!--pages/classify/classify.wxml-->
+<view class="container">
+    <view class="my_content">
+        <view class="" style="width:100%;height:100%;">
+            <view class="left_box" style='font-size:24rpx'>
+                <scroll-view style="height:100%;" scroll-with-animation="" scroll-y="true" bindscroll="scroll" scroll-top="{{scrollTo}}" class="my_table_list scroll-view_H">
+                   <block wx:for="{{classify_name_list}}"> 
+                      <view data-tid="{{item.tid}}" data-stade="{{item.top_level}}" data-name="{{item.classify_name}}" bindtap="click_change" >
+                          <view class="left_list {{currentTid==item.tid ? 'commonColor commonBg' : '' }}"  data-num="{{index}}" style='font-size:24rpx'>{{item.classify_name}}</view>
+                      </view>
+                   </block>
+                </scroll-view>
+            </view>
+            <view class="right_box">
+                <scroll-view style="height:100%;" scroll-with-animation="" scroll-y="true" bindscroll="scroll" scroll-top="{{scrollTo}}" class="my_table_list scroll-view_H">
+                    <view class="gongs_list">
+                        <view class="title2 commonBorder2">{{goods_name}}<span class="view_red"></span></view>
+                        <block wx:for="{{classify_goods_list}}">
+                            <view class="product_list">
+                                <navigator url="/pages/product_detail/product_detail?gid={{item.gid}}">
+                                <view class="product_left">
+                                    <image src="{{item.banner_list}}" mode="aspectFill"></image>
+                                </view>
+                                <view class="product_right">
+                                    <view class="title addclass">{{item.goods_name}}</view>
+                                    <view class="title">{{item.goods_title}}</view>
+                                    <view class="money">
+                                        <!-- ￥<span class="text">{{item.discount_price}}</span> -->
+                                        <span class="now_price"><span style="font-size:22rpx">￥</span>{{item.discount_price}}</span>
+                                        <span class="rel_m_price">￥<span class="num2">{{item.rel_m_price}}</span><span class="line"></span></span>
+                                        <span class='sold_num'>已抢{{item.sold_num}}件</span>
+                                    </view>
+                                </view>
+                                </navigator>
+                            </view>
+                        </block>
+                        
+                    </view>
+                </scroll-view>
+            </view>
+        </view>
+
+    </view>
+    <!-- <view class='loading_box' style='display:{{loading_stadus}};'><image src="/images/25.gif" style='width:64rpx;height:64rpx;'></image></view> -->
+</view>

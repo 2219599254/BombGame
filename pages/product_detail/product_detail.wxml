@@ -1,0 +1,144 @@
+<!--pages/product_detail/product_detail.wxml-->
+<view class="container">
+    <view class="my_container">
+      <!--banner-->
+      <swiper indicator-dots="{{indicatorDots}}" autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}" circular="true" class="banner_img">
+          <block wx:for="{{$info.banner_list}}">
+              <swiper-item>
+                  <image mode="aspectFill" src="{{item}}" bindtap="banner_preview" class="slide-image" data-img="{{item}}"/>
+              </swiper-item>
+          </block>
+      </swiper>
+
+      <view class="product_title">
+          <view class="title" style='margin-bottom:0rpx;'>{{$info.goods_name}}</view>
+          <!-- <view class="weight"style='margin-bottom:24rpx;'>标准重量：{{$info.weight}}g</view> -->
+          <!--相同价格或者单个价格  -->
+          <view class="money_mun" wx:if="{{!rmb_min_max.length}}">
+              <span class="money">￥<span class="num">{{$info.main_style_options[0].discount_price}}</span></span>
+              <span class="money" style="font-size:8px;color:#666666;margin-left:10px;">原价：￥{{$info.main_style_options[0].rel_m_price}}</span>
+              <!-- <span class="rel_m_price">￥<span class="num2">{{$info.main_style_options[0].rel_m_price}}</span><span class="line"></span></span> -->
+              <span class="mun">库存：{{$info.repertory}} / 已售：{{$info_sold_num}}</span>
+          </view>
+          <!--最小价格和最大价格  -->
+          <view class="money_mun" wx:if="{{rmb_min_max.length}}">
+            <span class="money">￥<span class="num">{{rmb_min_max[0]}} - </span></span>
+            <span class="money">￥<span class="num">{{rmb_min_max[1]}}</span></span>
+            <span class="mun">库存：{{$info.repertory}} / 已售：{{$info_sold_num}}</span>
+          </view>
+      </view>
+
+      <view class="service">
+          <view class="b1">服务：</view>
+          <view class="b1"><image src="/images/yes.png" style="width:31rpx;height:31rpx;"></image><span class="text">微信认证</span></view>
+          <view class="b1"><image src="/images/yes.png" style="width:31rpx;height:31rpx;"></image><span class="text">担保交易</span></view>
+          <view class="b1"><image src="/images/yes.png" style="width:31rpx;height:31rpx;"></image><span class="text">实体店铺</span></view>
+      </view>
+
+      <view class="service" style="margin-top:24rpx;">
+          <view class="b1">运费：</view>
+          <span style="font-size:24rpx;color:#999;" wx:if="{{$info.fare_price == '0'}}">免运费</span>
+          <span style="font-size:24rpx;color:#999;" wx:else>{{$info.fare_price}}元</span>
+          <span style="font-size:24rpx;color:#999;" wx:if="{{$info.free!=='0'}}"> ( 满{{$info.free}}元包邮 )</span>
+      </view>
+      <view class="img_box">
+          <view class="title">商品详请<span class="red_line commonBg"></span></view>
+      </view>
+      <view class="image_detail">
+           <block wx:for="{{$info.img_info_list}}">
+              <image src="{{item}}" mode="widthFix" bindtap='banner_preview2' data-img="{{item}}"></image>
+           </block> 
+      </view>
+
+      <!--底部悬浮  -->
+       <view class="bottom_btn commonBg" wx:if="{{!activity.status}}">
+          <view class="aaa">
+              <view class="btn index_btn" bindtap="jump_to_index">
+                  <image src="/images/index.png" style="width:46rpx;height:46rpx;"></image>
+              </view>
+              <view class="btn now_buy commonBg" bindtap="sure_build_orders" data-status="1">立即购买</view>
+          </view>
+          <view class="clear"></view>
+      </view>
+      <view class='bottom_btn commonBg' wx:elif="{{activity.status === 1}}">
+          <view class="aaa">
+              <view class="btn index_btn" bindtap="jump_to_index">
+                  <image src="/images/index.png" style="width:46rpx;height:46rpx;"></image>
+              </view>
+              <view class="btn liji_canyu1 commonBg" bindtap="sure_build_orders" data-status="1">立即购买</view>
+              <view class="btn liji_canyu2 commonColor" bindtap="setModalStatus2" data-status="1">我要参与</view>
+          </view>
+      </view>
+      <view class='bottom_btn commonBg' wx:elif="{{activity.status === 2}}">
+          <view class="aaa">
+              <view class="btn index_btn" bindtap="jump_to_index">
+                  <image src="/images/index.png" style="width:46rpx;height:46rpx;"></image>
+              </view>
+              <view class="btn liji_canyu1 commonBg" bindtap="sure_build_orders" data-status="1">立即购买</view>
+              <view class="btn liji_canyu2 commonColor" bindtap="setModalStatus2" data-status="2" data-aid="{{activity.aid}}">找人砍价</view>
+          </view>
+      </view>
+
+      <!--加入购物车或立即支付动态弹窗  -->
+      <view class="drawer_screen" bindtap="setModalStatus" data-status="0" wx:if="{{showModalStatus}}"></view>
+      <view class="pay_join_tanchuang" animation="{{animationData}}" wx:if="{{showModalStatus}}">
+          <view class="scroll_box">
+            <scroll-view style="height:800rpx;position:relative;" scroll-into-view="{{toView}}" scroll-top="{{scrollTop}}" scroll-with-animation="" scroll-y="true" bindscroll="scroll" scroll-top="{{scrollTo}}" class="my_table_list scroll-view_H">
+                <view class="product_list2">
+                    <view class="product_left">
+                        <image src="{{$info.banner_list[0]}}" mode="aspectFill"></image>
+                    </view>
+                    <view class="product_right">
+
+                        <view class="money2" wx:if="{{!mun_rmb}}">￥{{$discount_price}}</view>
+                        <!--动态改变  -->
+                         <view class="money2" wx:if="{{mun_rmb}}">￥{{mun_rmb}}</view> 
+
+                        <view class="stock">库存：{{$pro_num}}</view>
+                        <view class="choosed" wx:if="{{$info.main_style_options[0].main_style_tags||$info.sub_style_options[0].sub_style_tags}}">已选：
+                          <block wx:for="{{choosed_goods}}">
+                              “<span>{{item}}</span>”
+                          </block>
+                        </view>
+                    </view>
+                    <image class="image1" bindtap="setModalStatus" data-status="0" src="/images/delete2.png" style="width:24rpx;height:24rpx"></image>
+                </view>
+
+                <view class="color_class">
+                    <view class="title" wx:if="{{$info.main_style_options[0].main_style_name}}">{{$info.main_style_options[0].main_style_name}}</view>
+                    <!-- <block wx:for="{{$info.main_style_options}}"> -->
+                      <view class="color_list_box" wx:if="{{$info.main_style_options[0].main_style_tags}}">
+                          <span wx:for="{{$info.main_style_options}}" class="color_list {{currentIndex1==index?'commonColor commonBorder' : ''}}" bindtap="click_choose1" data-index="{{index}}" >{{item.main_style_tags}}</span>
+                      </view>
+                    <!-- </block> -->
+                </view>
+                
+                <view class="textrue" wx:if="{{$info.sub_style_options[0].sub_style_tags}}">
+                    <view class="title">{{$info.sub_style_options[0].sub_style_name}}</view>
+                    <!-- <block wx:for="{{$info.sub_style_options}}"> -->
+                      <view class="color_list_box">
+                          <span  wx:for="{{$info.sub_style_options}}"  class="color_list {{currentIndex2==index?'commonColor commonBorder' : ''}}" bindtap="click_choose2" data-index="{{index}}">{{item.sub_style_tags}}</span>
+                      </view>
+                    <!-- </block> -->
+                </view>
+                
+                <view class="pay_num">购买数量
+                    <view class="stepper" style='top:28rpx;'>
+                        <view class="minus" data-index="{{index}}" bindtap="changeNum" data-alpha-beta="0">-</view>
+                        <input type="number" bindblur="bindManual" value="{{buy_num}}" placeholder="{{item.buy_num}}" placeholder-style="color:#FB1B1B" />
+                        <view class="nomal"  data-index="{{index}}" bindtap="changeNum" data-alpha-beta="1">+</view>
+                    </view>
+                </view>
+            </scroll-view>
+
+            <!-- <view class="buttom_sure_btn1" style="display:{{buttom_sure_btn1}}" bindtap="add_item_cart">确定</view>
+            <view class="buttom_sure_btn2" style="display:{{buttom_sure_btn2}}" bindtap="sure_build_orders">确定购买</view> -->
+            <form bindsubmit="formSubmit" report-submit="true">
+              <button class="buttom_sure_btn1 commonBg" form-type="submit" style="display:{{buttom_sure_btn1}}" bindtap="add_item_cart">确定</button>
+              <button class="buttom_sure_btn2 commonBg" form-type="submit" style="display:{{buttom_sure_btn2}}" bindtap="sure_build_orders">确定购买</button>
+            </form>
+          </view>
+      </view>
+    
+    </view>
+</view>

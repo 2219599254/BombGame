@@ -1,0 +1,13 @@
+<import src="../../wxParse/wxParse.wxml" />
+<view class='content'>
+  <view class='top'>
+    <view class='title'>{{title}}</view>
+    <view class="line">
+      <view class='scan_times'>阅读 {{scan_times}}</view>
+      <view class='date'>{{create_time}}</view>
+    </view>
+  </view>
+  <view class="wxParse">
+    <template is="wxParse" data="{{wxParseData:article.nodes}}" />
+  </view>
+</view>
