@@ -8,11 +8,12 @@ This is a classic mine-sweeping game that many people have played when they were
 The same rules and classic game interface lets you find the feeling of returning to the childhood ~~
 
 icon<br/>
-![image](https://github.com/2219599254/BombGame/blob/master/BombGame/image/icon_start2.png)
+![image](https://github.com/2219599254/BombGame/blob/master/image/icon_start2.png)
 
 screenshot<br/>
-![image](https://github.com/2219599254/BombGame/blob/master/BombGame/image/page1.png)
+![image](https://github.com/2219599254/BombGame/blob/master/image/page1.png)
 <br/>
-![image](https://github.com/2219599254/BombGame/blob/master/BombGame/image/page2.png)
+![image](https://github.com/2219599254/BombGame/blob/master/image/page2.png)
 
+Tips:
 If you have any problems with the game, you can contact us by email
